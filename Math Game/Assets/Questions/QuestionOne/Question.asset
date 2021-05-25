@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a906848169ca0e341870c15271ec1107, type: 3}
+  m_Name: Question
+  m_EditorClassIdentifier: 
+  Text: What is 2 + 2?
+  PointsRewarded: 10
+  CorrectAnswer: {fileID: 11400000, guid: 32427f0ecd0c04e44b3ddd70e6ce8918, type: 2}
+  WrongAnswers:
+  - {fileID: 11400000, guid: bfe66f80b1cb77043b0d239626fd7b10, type: 2}
+  - {fileID: 11400000, guid: a672d7ec57ac39146b049fdbb5bc1a5e, type: 2}
+  - {fileID: 11400000, guid: f0ca294721df90f479c32d860dbfc5be, type: 2}
