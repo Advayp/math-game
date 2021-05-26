@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Question
   m_EditorClassIdentifier: 
   Text: What is 2 + 2?
-  PointsRewarded: 10
+  PointsRewarded: 40
+  Tries: 2
+  Seconds: 10
   CorrectAnswer: {fileID: 11400000, guid: 32427f0ecd0c04e44b3ddd70e6ce8918, type: 2}
   WrongAnswers:
   - {fileID: 11400000, guid: bfe66f80b1cb77043b0d239626fd7b10, type: 2}

@@ -2,7 +2,7 @@
 {
 	public class MaxInclusiveCounter : ICounter
 	{
-		public int Count { get; set; }
+		public int Count { get; private set; }
 		public bool HasReachedMax { get; set; }
 
 		private readonly int _maxCount;

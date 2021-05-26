@@ -2,7 +2,7 @@
 {
 	public interface ICounter
 	{
-		int Count { get; set; }
+		int Count { get; }
 		bool HasReachedMax { get; set; }
 
 		void Increment();

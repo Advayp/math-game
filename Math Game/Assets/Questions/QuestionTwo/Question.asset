@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: What is 5 * 3
   PointsRewarded: 20
-  CorrectAnswer: {fileID: 11400000, guid: 32427f0ecd0c04e44b3ddd70e6ce8918, type: 2}
+  Tries: 2
+  Seconds: 20
+  CorrectAnswer: {fileID: 11400000, guid: 7f43cc1589ba7f142a813dc9655d4294, type: 2}
   WrongAnswers:
-  - {fileID: 11400000, guid: bfe66f80b1cb77043b0d239626fd7b10, type: 2}
-  - {fileID: 11400000, guid: a672d7ec57ac39146b049fdbb5bc1a5e, type: 2}
-  - {fileID: 11400000, guid: f0ca294721df90f479c32d860dbfc5be, type: 2}
+  - {fileID: 11400000, guid: 574650b284eb1a24aa05bf87d3f7a662, type: 2}
+  - {fileID: 11400000, guid: 43e08cabd3de6e34c95f932f78ff6861, type: 2}
+  - {fileID: 11400000, guid: d7efd85dcdfb1b1439b109857d0d5ffc, type: 2}

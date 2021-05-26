@@ -4,80 +4,98 @@ using System;
 
 namespace MathGame.Core
 {
-	public class AnswerManager : MonoBehaviour
-	{
-		public Question MainQuestion;
-		[SerializeField] private Color CorrectColor;
-		[SerializeField] private Color WrongColor;
-		[SerializeField] private AnswerChecker _correctAnswer;
-		[SerializeField] private List<AnswerChecker> _answerCheckers;
-		[SerializeField] private FloatVariable _score;
+    public class AnswerManager : MonoBehaviour
+    {
+        public Question MainQuestion;
+        [SerializeField] private Color CorrectColor;
+        [SerializeField] private Color WrongColor;
+        [SerializeField] private AnswerChecker _correctAnswer;
+        [SerializeField] private List<AnswerChecker> _answerCheckers;
+        [SerializeField] private FloatVariable _score;
+        [SerializeField] private Timer _timer;
 
-		// Made Static Because I want each of the different Instances of the AnswerManager
-		// to call the same methods subscribed to the Scored event
-		public static event Action Scored;
+        // Made Static Because I want each of the different Instances of the AnswerManager
+        // to call the same methods subscribed to the Scored event
+        public static event Action Scored;
 
-		private void Start()
-		{
-#if UNITY_EDITOR
-			_score.Value = 0;
-#endif
-		}
+        private Tries _tries;
 
-		public void Check(AnswerChecker answer)
-		{
-			if (MainQuestion.CorrectAnswer != answer.AnswerToCheck)
-			{
-				answer.ChangeImageColor(WrongColor);
+        private void Start()
+        {
+            _tries = new Tries(MainQuestion.Tries);
+            _timer.StartTimer(MainQuestion.Seconds);
+        }
 
-				_correctAnswer.ChangeImageColor(CorrectColor);
+        private void Update()
+        {
+            if (_timer.IsComplete == false) return;
+            ShowAnswer();
+        }
 
-				_score.Value = Mathf.Clamp(_score.Value - MainQuestion.PointsRewarded, 0, int.MaxValue);
-			}
-			else
-			{
-				answer.ChangeImageColor(CorrectColor);
-				_score.Value += MainQuestion.PointsRewarded;
-			}
+        public void Check(AnswerChecker answer)
+        {
+            if (MainQuestion.CorrectAnswer != answer.AnswerToCheck)
+            {
+                answer.ChangeImageColor(WrongColor);
 
-			Scored?.Invoke();
-			DisableAllAnswerButtons();
-		}
+                if (_tries.UseTry()) return;
+                _correctAnswer.ChangeImageColor(CorrectColor);
 
-		private void DisableAllAnswerButtons()
-		{
-			foreach (AnswerChecker answerChecker in _answerCheckers)
-			{
-				answerChecker.AnswerButton.interactable = false;
-			}
-		}
+                _score.Value = Mathf.Clamp(_score.Value - MainQuestion.PointsRewarded, 0, int.MaxValue);
+            }
+            else
+            {
+                answer.ChangeImageColor(CorrectColor);
+                _score.Value += MainQuestion.PointsRewarded;
+            }
 
-		#region Editor Functions
+            _timer.StopTimer();
+            Scored?.Invoke();
+            DisableAllAnswerButtons();
+        }
 
-		public void ChangeToCorrect()
-		{
-			foreach (AnswerChecker answerChecker in _answerCheckers)
-			{
-				answerChecker.ChangeImageColor(CorrectColor);
-			}
-		}
+        private void ShowAnswer()
+        {
+            _correctAnswer.ChangeImageColor(CorrectColor);
+            DisableAllAnswerButtons();
+            _timer.StopTimer();
+            Scored?.Invoke();
+        }
 
-		public void ChangeToWrong()
-		{
-			foreach (AnswerChecker answerChecker in _answerCheckers)
-			{
-				answerChecker.ChangeImageColor(WrongColor);
-			}
-		}
+        private void DisableAllAnswerButtons()
+        {
+            foreach (AnswerChecker answerChecker in _answerCheckers)
+            {
+                answerChecker.AnswerButton.interactable = false;
+            }
+        }
 
-		public void ChangeToDefault()
-		{
-			foreach (AnswerChecker answerChecker in _answerCheckers)
-			{
-				answerChecker.ChangeImageColor(Color.white);
-			}
-		}
+        #region Editor Functions
 
-		#endregion Editor Functions
-	}
+        public void ChangeToCorrect()
+        {
+            foreach (AnswerChecker answerChecker in _answerCheckers)
+            {
+                answerChecker.ChangeImageColor(CorrectColor);
+            }
+        }
+
+        public void ChangeToWrong()
+        {
+            foreach (AnswerChecker answerChecker in _answerCheckers)
+            {
+                answerChecker.ChangeImageColor(WrongColor);
+            }
+        }
+
+        public void ChangeToDefault()
+        {
+            foreach (AnswerChecker answerChecker in _answerCheckers)
+            {
+                answerChecker.ChangeImageColor(Color.white);
+            }
+        }
+
+        #endregion Editor Functions
+    }
 }
