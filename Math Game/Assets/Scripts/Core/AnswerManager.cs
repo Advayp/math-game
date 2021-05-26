@@ -44,7 +44,15 @@ namespace MathGame.Core
 			DisableAllAnswerButtons();
 		}
 
-		#region Editor
+		private void DisableAllAnswerButtons()
+		{
+			foreach (AnswerChecker answerChecker in _answerCheckers)
+			{
+				answerChecker.AnswerButton.interactable = false;
+			}
+		}
+
+		#region Editor Functions
 
 		public void ChangeToCorrect()
 		{
@@ -70,14 +78,6 @@ namespace MathGame.Core
 			}
 		}
 
-		#endregion Editor
-
-		private void DisableAllAnswerButtons()
-		{
-			foreach (AnswerChecker answerChecker in _answerCheckers)
-			{
-				answerChecker.AnswerButton.interactable = false;
-			}
-		}
+		#endregion Editor Functions
 	}
 }
