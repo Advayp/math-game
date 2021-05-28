@@ -1,17 +1,21 @@
 using UnityEngine;
 using TMPro;
 using MathGame.Core;
+using UnityEngine.Serialization;
 
 namespace MathGame.Display
 {
-	public class AnswerDisplayer : MonoBehaviour
-	{
-		[SerializeField] private TMP_Text _label;
-		[SerializeField] private Answer _answer;
+    public class AnswerDisplayer : MonoBehaviour
+    {
+        [FormerlySerializedAs("_label")]
+        [SerializeField] private TMP_Text label;
 
-		private void Start()
-		{
-			_label.SetText(_answer.value);
-		}
-	}
+        [FormerlySerializedAs("_answer")]
+        [SerializeField] private Answer answer;
+
+        private void Start()
+        {
+            label.SetText(answer.value);
+        }
+    }
 }

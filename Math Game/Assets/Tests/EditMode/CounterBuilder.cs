@@ -1,30 +1,33 @@
 ﻿using MathGame.Managers;
 
 // Builder Pattern
-public class CounterBuilder
+namespace Tests.EditMode
 {
-	private int _startValue;
-	private int _maxValue;
-
-	public CounterBuilder WithStartValue(int startValue)
+	public class CounterBuilder
 	{
-		_startValue = startValue;
-		return this;
-	}
+		private int _startValue;
+		private int _maxValue;
 
-	public CounterBuilder WithMaxValue(int maxValue)
-	{
-		_maxValue = maxValue;
-		return this;
-	}
+		public CounterBuilder WithStartValue(int startValue)
+		{
+			_startValue = startValue;
+			return this;
+		}
 
-	public MaxInclusiveCounter Build()
-	{
-		return new MaxInclusiveCounter(_startValue, _maxValue);
-	}
+		public CounterBuilder WithMaxValue(int maxValue)
+		{
+			_maxValue = maxValue;
+			return this;
+		}
 
-	public static implicit operator MaxInclusiveCounter(CounterBuilder builder)
-	{
-		return builder.Build();
+		public MaxInclusiveCounter Build()
+		{
+			return new MaxInclusiveCounter(_startValue, _maxValue);
+		}
+
+		public static implicit operator MaxInclusiveCounter(CounterBuilder builder)
+		{
+			return builder.Build();
+		}
 	}
 }

@@ -1,26 +1,28 @@
 using UnityEngine;
 using MathGame.Core;
+using UnityEngine.Serialization;
 
 namespace MathGame.UI
 {
-	public class NextButton : MonoBehaviour
-	{
-		[SerializeField] private GameObject _nextButton;
+    public class NextButton : MonoBehaviour
+    {
+        [FormerlySerializedAs("_nextButton")]
+        [SerializeField] private GameObject nextButton;
 
-		private void Start()
-		{
-			_nextButton.SetActive(false);
-			AnswerManager.Scored += SetNextButtonToActive;
-		}
+        private void Start()
+        {
+            nextButton.SetActive(false);
+            AnswerManager.Scored += SetNextButtonToActive;
+        }
 
-		private void OnDestroy()
-		{
-			AnswerManager.Scored -= SetNextButtonToActive;
-		}
+        private void OnDestroy()
+        {
+            AnswerManager.Scored -= SetNextButtonToActive;
+        }
 
-		public void SetNextButtonToActive()
-		{
-			_nextButton.SetActive(true);
-		}
-	}
+        private void SetNextButtonToActive()
+        {
+            nextButton.SetActive(true);
+        }
+    }
 }

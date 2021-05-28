@@ -1,12 +1,15 @@
 using UnityEngine;
 using TMPro;
 using MathGame.Core;
+using UnityEngine.Serialization;
 
 namespace MathGame.Display
 {
     public class ScoreDisplayer : MonoBehaviour
     {
-        [SerializeField] private FloatVariable _score;
+        [FormerlySerializedAs("_score")]
+        [SerializeField] private FloatVariable score;
+
         private TMP_Text _label;
 
         private void Awake()
@@ -17,7 +20,9 @@ namespace MathGame.Display
         private void Start()
         {
             AnswerManager.Scored += UpdateLabel;
-            _score.Value = 0;
+#if UNITY_EDITOR
+            score.value = 0;
+#endif
         }
 
         private void OnDestroy()
@@ -35,9 +40,9 @@ namespace MathGame.Display
             AnswerManager.Scored += UpdateLabel;
         }
 
-        public void UpdateLabel()
+        private void UpdateLabel()
         {
-            _label.SetText($"Score: {_score.Value}");
+            _label.SetText($"Score: {score.value}");
         }
     }
 }

@@ -1,22 +1,25 @@
 ﻿using MathGame.Core;
 
-public class TriesBuilder
+namespace Tests.EditMode
 {
-    private int _maxTries;
-
-    public TriesBuilder WithMax(int maxTries)
+    public class TriesBuilder
     {
-        _maxTries = maxTries;
-        return this;
-    }
+        private int _maxTries;
 
-    public Tries Build()
-    {
-        return new Tries(_maxTries);
-    }
+        public TriesBuilder WithMax(int maxTries)
+        {
+            _maxTries = maxTries;
+            return this;
+        }
 
-    public static implicit operator Tries(TriesBuilder builder)
-    {
-        return builder.Build();
+        private Tries Build()
+        {
+            return new Tries(_maxTries);
+        }
+
+        public static implicit operator Tries(TriesBuilder builder)
+        {
+            return builder.Build();
+        }
     }
 }

@@ -1,18 +1,37 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using TMPro;
+using UnityEngine.Serialization;
 
 namespace MathGame.Core
 {
     public class AnswerManager : MonoBehaviour
     {
-        public Question MainQuestion;
-        [SerializeField] private Color CorrectColor;
-        [SerializeField] private Color WrongColor;
-        [SerializeField] private AnswerChecker _correctAnswer;
-        [SerializeField] private List<AnswerChecker> _answerCheckers;
-        [SerializeField] private FloatVariable _score;
-        [SerializeField] private Timer _timer;
+        [FormerlySerializedAs("MainQuestion")]
+        public Question mainQuestion;
+
+        [FormerlySerializedAs("CorrectColor")]
+        [SerializeField]
+        public Color correctColor;
+
+        [FormerlySerializedAs("WrongColor")]
+        [SerializeField]
+        public Color wrongColor;
+
+        [FormerlySerializedAs("_correctAnswer")]
+        [SerializeField]
+        public AnswerChecker correctAnswer;
+
+        [FormerlySerializedAs("_answerCheckers")]
+        [SerializeField] private List<AnswerChecker> answerCheckers;
+
+        [FormerlySerializedAs("_score")]
+        [SerializeField] private FloatVariable score;
+
+        [FormerlySerializedAs("_timer")]
+        [SerializeField] private Timer timer;
+
 
         // Made Static Because I want each of the different Instances of the AnswerManager
         // to call the same methods subscribed to the Scored event
@@ -22,75 +41,82 @@ namespace MathGame.Core
 
         private void Start()
         {
-            _tries = new Tries(MainQuestion.Tries);
-            _timer.StartTimer(MainQuestion.Seconds);
+            _tries = new Tries(mainQuestion.tries);
+            timer.StartTimer(mainQuestion.seconds);
         }
 
         private void Update()
         {
-            if (_timer.IsComplete == false) return;
+            if (timer.IsComplete == false) return;
             ShowAnswer();
         }
 
         public void Check(AnswerChecker answer)
         {
-            if (MainQuestion.CorrectAnswer != answer.AnswerToCheck)
+            if (mainQuestion.correctAnswer != answer.answerToCheck)
             {
-                answer.ChangeImageColor(WrongColor);
+                answer.ChangeImageColor(wrongColor);
 
                 if (_tries.UseTry()) return;
-                _correctAnswer.ChangeImageColor(CorrectColor);
 
-                _score.Value = Mathf.Clamp(_score.Value - MainQuestion.PointsRewarded, 0, int.MaxValue);
+                correctAnswer.ChangeImageColor(correctColor);
+
+                score.value = Mathf.Clamp(score.value - mainQuestion.pointsRewarded, 0, int.MaxValue);
             }
             else
             {
-                answer.ChangeImageColor(CorrectColor);
-                _score.Value += MainQuestion.PointsRewarded;
+                answer.ChangeImageColor(correctColor);
+                score.value += mainQuestion.pointsRewarded;
             }
 
-            _timer.StopTimer();
+            timer.StopTimer();
             Scored?.Invoke();
             DisableAllAnswerButtons();
         }
 
         private void ShowAnswer()
         {
-            _correctAnswer.ChangeImageColor(CorrectColor);
+            correctAnswer.ChangeImageColor(correctColor);
             DisableAllAnswerButtons();
-            _timer.StopTimer();
+            timer.StopTimer();
             Scored?.Invoke();
         }
 
         private void DisableAllAnswerButtons()
         {
-            foreach (AnswerChecker answerChecker in _answerCheckers)
+            foreach (var answerChecker in answerCheckers)
             {
-                answerChecker.AnswerButton.interactable = false;
+                answerChecker.answerButton.interactable = false;
             }
         }
+
+        public void UseTriesPowerUp()
+        {
+            PowerUpManager.Use(PowerUpType.Tries, ref _tries.RemainingTries);
+        }
+        
 
         #region Editor Functions
 
         public void ChangeToCorrect()
         {
-            foreach (AnswerChecker answerChecker in _answerCheckers)
+            foreach (var answerChecker in answerCheckers)
             {
-                answerChecker.ChangeImageColor(CorrectColor);
+                answerChecker.ChangeImageColor(correctColor);
             }
         }
 
         public void ChangeToWrong()
         {
-            foreach (AnswerChecker answerChecker in _answerCheckers)
+            foreach (var answerChecker in answerCheckers)
             {
-                answerChecker.ChangeImageColor(WrongColor);
+                answerChecker.ChangeImageColor(wrongColor);
             }
         }
 
         public void ChangeToDefault()
         {
-            foreach (AnswerChecker answerChecker in _answerCheckers)
+            foreach (var answerChecker in answerCheckers)
             {
                 answerChecker.ChangeImageColor(Color.white);
             }

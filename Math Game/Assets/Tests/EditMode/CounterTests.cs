@@ -1,55 +1,58 @@
-using NUnit.Framework;
 using MathGame.Managers;
+using NUnit.Framework;
 
-public class CounterTests
+namespace Tests.EditMode
 {
-    [Test]
-    public void Counter_DoesNotIncrement_IfCountIsAtMax()
+    public class CounterTests
     {
-        MaxInclusiveCounter counter = A.Counter.WithStartValue(10).WithMaxValue(10);
+        [Test]
+        public void Counter_DoesNotIncrement_IfCountIsAtMax()
+        {
+            MaxInclusiveCounter counter = A.Counter.WithStartValue(10).WithMaxValue(10);
 
-        counter.Increment();
+            counter.Increment();
 
-        Assert.AreEqual(10, counter.Count);
-    }
+            Assert.AreEqual(10, counter.Count);
+        }
 
-    [Test]
-    public void Counter_SetsCountToMax_IfCountIsPastMax()
-    {
-        MaxInclusiveCounter counter = A.Counter.WithStartValue(12).WithMaxValue(10);
+        [Test]
+        public void Counter_SetsCountToMax_IfCountIsPastMax()
+        {
+            MaxInclusiveCounter counter = A.Counter.WithStartValue(12).WithMaxValue(10);
 
-        counter.Increment();
+            counter.Increment();
 
-        Assert.AreEqual(10, counter.Count);
-    }
+            Assert.AreEqual(10, counter.Count);
+        }
 
-    [Test]
-    public void HasReachedMax_True_IfCountGreaterThanMax()
-    {
-        MaxInclusiveCounter counter = A.Counter.WithStartValue(10).WithMaxValue(10);
+        [Test]
+        public void HasReachedMax_True_IfCountGreaterThanMax()
+        {
+            MaxInclusiveCounter counter = A.Counter.WithStartValue(10).WithMaxValue(10);
 
-        counter.Increment();
+            counter.Increment();
 
-        Assert.IsTrue(counter.HasReachedMax);
-    }
+            Assert.IsTrue(counter.HasReachedMax);
+        }
 
-    [Test]
-    public void HasReachedMax_False_IfCountIsNotAtMax()
-    {
-        MaxInclusiveCounter counter = A.Counter.WithStartValue(1).WithMaxValue(10);
+        [Test]
+        public void HasReachedMax_False_IfCountIsNotAtMax()
+        {
+            MaxInclusiveCounter counter = A.Counter.WithStartValue(1).WithMaxValue(10);
 
-        counter.Increment();
+            counter.Increment();
 
-        Assert.IsFalse(counter.HasReachedMax);
-    }
+            Assert.IsFalse(counter.HasReachedMax);
+        }
 
-    [Test]
-    public void Counter_IncrementsCount_IfCountIsNotPastMax()
-    {
-        MaxInclusiveCounter counter = A.Counter.WithStartValue(1).WithMaxValue(10);
+        [Test]
+        public void Counter_IncrementsCount_IfCountIsNotPastMax()
+        {
+            MaxInclusiveCounter counter = A.Counter.WithStartValue(1).WithMaxValue(10);
 
-        counter.Increment();
+            counter.Increment();
 
-        Assert.AreEqual(2, counter.Count);
+            Assert.AreEqual(2, counter.Count);
+        }
     }
 }

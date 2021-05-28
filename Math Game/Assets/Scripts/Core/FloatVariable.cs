@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MathGame.Core
 {
 	[CreateAssetMenu]
 	public class FloatVariable : ScriptableObject
 	{
-		public float Value;
+		[FormerlySerializedAs("Value")]
+		public float value;
 	}
 }

@@ -11,7 +11,7 @@ namespace MathGame.EditorTools
 		{
 			base.OnInspectorGUI();
 
-			AnswerManager answerManager = target as AnswerManager;
+			var answerManager = target as AnswerManager;
 			GUILayout.BeginHorizontal();
 
 			if (GUILayout.Button("Change All to Correct"))
