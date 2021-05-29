@@ -12,6 +12,7 @@ namespace MathGame.Managers
         [FormerlySerializedAs("_nextButton")]
         [SerializeField] private GameObject nextButton;
 
+
         private ICounter _counter;
 
         private void Start()

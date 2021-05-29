@@ -1,7 +1,7 @@
 ﻿namespace MathGame.PowerUps
 {
-    public interface IPowerUp
+    public interface IPowerUp<T>
     {
-        void Use(ref int amount);
+        void Use(ref T amount);
     }
 }

@@ -12,12 +12,12 @@ namespace MathGame.UI
         private void Start()
         {
             nextButton.SetActive(false);
-            AnswerManager.Scored += SetNextButtonToActive;
+            AnswerManager.QuestionCompleted += SetNextButtonToActive;
         }
 
         private void OnDestroy()
         {
-            AnswerManager.Scored -= SetNextButtonToActive;
+            AnswerManager.QuestionCompleted -= SetNextButtonToActive;
         }
 
         private void SetNextButtonToActive()

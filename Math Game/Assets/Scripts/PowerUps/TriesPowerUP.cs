@@ -3,7 +3,7 @@
 namespace MathGame.PowerUps
 {
     [Serializable]
-    public class TriesPowerUp : IPowerUp
+    public class TriesPowerUp : IPowerUp<int>
     {
         private readonly int _triesAdded;
 

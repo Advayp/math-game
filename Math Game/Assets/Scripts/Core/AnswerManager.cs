@@ -1,23 +1,16 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
-using TMPro;
 using UnityEngine.Serialization;
 
 namespace MathGame.Core
 {
     public class AnswerManager : MonoBehaviour
     {
+        #region Inspector Fields
+
         [FormerlySerializedAs("MainQuestion")]
         public Question mainQuestion;
-
-        [FormerlySerializedAs("CorrectColor")]
-        [SerializeField]
-        public Color correctColor;
-
-        [FormerlySerializedAs("WrongColor")]
-        [SerializeField]
-        public Color wrongColor;
 
         [FormerlySerializedAs("_correctAnswer")]
         [SerializeField]
@@ -26,22 +19,27 @@ namespace MathGame.Core
         [FormerlySerializedAs("_answerCheckers")]
         [SerializeField] private List<AnswerChecker> answerCheckers;
 
-        [FormerlySerializedAs("_score")]
-        [SerializeField] private FloatVariable score;
-
         [FormerlySerializedAs("_timer")]
         [SerializeField] private Timer timer;
 
+        #endregion Inspector Fields
 
         // Made Static Because I want each of the different Instances of the AnswerManager
         // to call the same methods subscribed to the Scored event
         public static event Action Scored;
+        public static event Action QuestionCompleted;
 
-        private Tries _tries;
+        private IAnswerDetermine _answerDetermine;
+        private IManageScore _scoreManager;
+
+        private void Awake()
+        {
+            _answerDetermine = GetComponent<IAnswerDetermine>();
+            _scoreManager = GetComponent<IManageScore>();
+        }
 
         private void Start()
         {
-            _tries = new Tries(mainQuestion.tries);
             timer.StartTimer(mainQuestion.seconds);
         }
 
@@ -53,33 +51,33 @@ namespace MathGame.Core
 
         public void Check(AnswerChecker answer)
         {
-            if (mainQuestion.correctAnswer != answer.answerToCheck)
+            if (_answerDetermine.IsWrongAnswer(answer))
             {
-                answer.ChangeImageColor(wrongColor);
+                if (_answerDetermine.HandleWrongAnswer(answer)) return;
 
-                if (_tries.UseTry()) return;
-
-                correctAnswer.ChangeImageColor(correctColor);
-
-                score.value = Mathf.Clamp(score.value - mainQuestion.pointsRewarded, 0, int.MaxValue);
+                _scoreManager.LowerScore();
             }
             else
             {
-                answer.ChangeImageColor(correctColor);
-                score.value += mainQuestion.pointsRewarded;
+                _answerDetermine.HandleCorrectAnswer(answer);
+
+                _scoreManager.IncreaseScore();
             }
 
             timer.StopTimer();
             Scored?.Invoke();
+            QuestionCompleted?.Invoke();
             DisableAllAnswerButtons();
         }
 
+
         private void ShowAnswer()
         {
-            correctAnswer.ChangeImageColor(correctColor);
+            _answerDetermine.ShowCorrectAnswer();
             DisableAllAnswerButtons();
             timer.StopTimer();
             Scored?.Invoke();
+            QuestionCompleted?.Invoke();
         }
 
         private void DisableAllAnswerButtons()
@@ -90,38 +88,10 @@ namespace MathGame.Core
             }
         }
 
-        public void UseTriesPowerUp()
+        public void UseScorePowerUp()
         {
-            PowerUpManager.Use(PowerUpType.Tries, ref _tries.RemainingTries);
+            PowerUpManager.Use(PowerUpType.Score, ref _scoreManager.Score.value);
+            Scored?.Invoke();
         }
-        
-
-        #region Editor Functions
-
-        public void ChangeToCorrect()
-        {
-            foreach (var answerChecker in answerCheckers)
-            {
-                answerChecker.ChangeImageColor(correctColor);
-            }
-        }
-
-        public void ChangeToWrong()
-        {
-            foreach (var answerChecker in answerCheckers)
-            {
-                answerChecker.ChangeImageColor(wrongColor);
-            }
-        }
-
-        public void ChangeToDefault()
-        {
-            foreach (var answerChecker in answerCheckers)
-            {
-                answerChecker.ChangeImageColor(Color.white);
-            }
-        }
-
-        #endregion Editor Functions
     }
 }

@@ -16,7 +16,7 @@ namespace Tests.EditMode
         {
             return new TimePowerUp(_addedValue);
         }
-        
+
         public static implicit operator TimePowerUp(TimerPowerUpBuilder builder)
         {
             return builder.Build();

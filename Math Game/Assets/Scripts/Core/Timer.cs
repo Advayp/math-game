@@ -5,7 +5,9 @@ namespace MathGame.Core
 {
     public class Timer : MonoBehaviour
     {
+        [HideInInspector]
         public float TimeRemaining;
+
         public bool IsComplete => Mathf.FloorToInt(TimeRemaining % 60) <= 0;
 
         private TMP_Text _timerText;
@@ -41,6 +43,11 @@ namespace MathGame.Core
         public void StopTimer()
         {
             _hasTimerStarted = false;
+        }
+
+        public void UseTimePowerUp()
+        {
+            PowerUpManager.UseTime(ref TimeRemaining);
         }
     }
 }

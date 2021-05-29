@@ -20,7 +20,7 @@ namespace Tests.EditMode
 			return this;
 		}
 
-		public MaxInclusiveCounter Build()
+		private MaxInclusiveCounter Build()
 		{
 			return new MaxInclusiveCounter(_startValue, _maxValue);
 		}

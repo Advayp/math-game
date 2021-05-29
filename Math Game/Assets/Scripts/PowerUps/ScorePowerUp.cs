@@ -1,7 +1,7 @@
 ﻿namespace MathGame.PowerUps
 {
     [System.Serializable]
-    public class ScorePowerUp : IPowerUp
+    public class ScorePowerUp : IPowerUp<int>
     {
         private readonly int _scoreAdded;
 

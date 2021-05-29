@@ -1,7 +1,7 @@
 ﻿namespace MathGame.PowerUps
 {
     [System.Serializable]
-    public class TimePowerUp : IPowerUp
+    public class TimePowerUp : IPowerUp<float>
     {
 
         private readonly int _timeAdded;
@@ -11,7 +11,7 @@
             _timeAdded = timeAdded;
         }
 
-        public void Use(ref int amount)
+        public void Use(ref float amount)
         {
             amount += _timeAdded;
         }

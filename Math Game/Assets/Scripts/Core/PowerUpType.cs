@@ -2,7 +2,6 @@
 {
     public enum PowerUpType
     {
-        Time,
         Tries,
         Score
     }

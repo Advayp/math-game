@@ -1,9 +1,8 @@
-using UnityEngine;
 using TMPro;
-using MathGame.Core;
+using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace MathGame.Display
+namespace MathGame.Core
 {
     public class ScoreDisplayer : MonoBehaviour
     {
@@ -40,7 +39,7 @@ namespace MathGame.Display
             AnswerManager.Scored += UpdateLabel;
         }
 
-        private void UpdateLabel()
+        public void UpdateLabel()
         {
             _label.SetText($"Score: {score.value}");
         }

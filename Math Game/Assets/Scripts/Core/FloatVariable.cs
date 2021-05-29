@@ -7,6 +7,6 @@ namespace MathGame.Core
 	public class FloatVariable : ScriptableObject
 	{
 		[FormerlySerializedAs("Value")]
-		public float value;
+		public int value;
 	}
 }

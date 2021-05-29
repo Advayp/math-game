@@ -30,7 +30,7 @@ namespace Tests.EditMode
         [Test]
         public void Timer_Increases_IfIncrementIsCalled()
         {
-            var amount = 0;
+            var amount = 0f;
             TimePowerUp timePowerUp = A.TimerPowerUp.WithAddedValue(20);
             
             timePowerUp.Use(ref amount);

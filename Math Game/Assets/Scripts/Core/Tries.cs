@@ -14,5 +14,9 @@
             RemainingTries--;
             return RemainingTries > 0;
         }
+        public void UseTriesPowerUp()
+        {
+            PowerUpManager.Use(PowerUpType.Tries, ref RemainingTries);
+        }
     }
 }
