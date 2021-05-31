@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -135, y: -121}
-  m_SizeDelta: {x: 220.8585, y: 185.1503}
+  m_AnchoredPosition: {x: -159.72173, y: -94.95389}
+  m_SizeDelta: {x: 171.4151, y: 133.0581}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6036459199482018103
 CanvasRenderer:
@@ -154,7 +154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50, y: -121}
+  m_AnchoredPosition: {x: -85.3, y: -94.954}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6036459199486585263
@@ -305,8 +305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e0bd4a506b83a4f8fc9eabf31702f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: {fileID: 6036459199486585262}
-  _answer: {fileID: 0}
+  label: {fileID: 6036459199486585262}
+  answer: {fileID: 0}
 --- !u!114 &5793410630922841882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,6 +319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a66800f5b89e73943a8f45f172af3650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnswerToCheck: {fileID: 0}
-  AnswerButton: {fileID: 2034491381082159702}
-  _image: {fileID: 6036459199482018102}
+  answerToCheck: {fileID: 0}
+  answerButton: {fileID: 2034491381082159702}
+  image: {fileID: 6036459199482018102}

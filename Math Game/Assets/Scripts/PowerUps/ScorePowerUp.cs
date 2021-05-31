@@ -3,17 +3,22 @@
     [System.Serializable]
     public class ScorePowerUp : IPowerUp<int>
     {
-        private readonly int _scoreAdded;
+        private readonly int _scoreMultiplier;
 
-        public ScorePowerUp(int scoreAdded)
+        public ScorePowerUp(int scoreMultiplier)
         {
-            _scoreAdded = scoreAdded;
+            _scoreMultiplier = scoreMultiplier;
         }
 
 
         public void Use(ref int amount)
         {
-            amount += _scoreAdded;
+            amount *= _scoreMultiplier;
+        }
+
+        public int GetInfo()
+        {
+            return _scoreMultiplier;
         }
     }
 }

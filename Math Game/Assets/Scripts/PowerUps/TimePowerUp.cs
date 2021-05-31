@@ -15,5 +15,10 @@
         {
             amount += _timeAdded;
         }
+
+        public int GetInfo()
+        {
+            return _timeAdded;
+        }
     }
 }

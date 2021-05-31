@@ -1,49 +1,55 @@
-using System;
 using System.Collections.Generic;
 using MathGame.PowerUps;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace MathGame.Core
 {
     public class PowerUpManager : MonoBehaviour
     {
-        [SerializeField] private FloatVariable score;
-        [SerializeField] private ScoreDisplayer scoreDisplayer;
-
         private static readonly Dictionary<PowerUpType, IPowerUp<int>> PowerUps = new Dictionary<PowerUpType, IPowerUp<int>>();
 
         private static readonly List<IPowerUp<int>> TriesPowerUps = new List<IPowerUp<int>>();
         private static readonly List<IPowerUp<int>> ScorePowerUps = new List<IPowerUp<int>>();
         private static readonly List<IPowerUp<float>> TimePowerUps = new List<IPowerUp<float>>();
-
+        
         public static IPowerUp<int> RecentTriesPowerUp => TriesPowerUps.Count == 0 ? null : TriesPowerUps[TriesPowerUps.Count - 1];
-
-        private static IPowerUp<int> RecentScorePowerUp => ScorePowerUps.Count == 0 ? null : ScorePowerUps[ScorePowerUps.Count - 1];
+        public static IPowerUp<int> RecentScorePowerUp => ScorePowerUps.Count == 0 ? null : ScorePowerUps[ScorePowerUps.Count - 1];
         public static IPowerUp<float> RecentTimePowerUp => TimePowerUps.Count == 0 ? null : TimePowerUps[TimePowerUps.Count - 1];
-
+        
         private void Start()
         {
-            AddScorePowerUp(new ScorePowerUp(20));
+            AddScorePowerUp(new ScorePowerUp(2));
         }
 
-        public static void Use(PowerUpType powerUpType, ref int amount)
+        public static void UseScore(ref int amount)
         {
-            if (PowerUps.Keys.Count == 0) return;
-            PowerUps[powerUpType].Use(ref amount);
-            if (powerUpType == PowerUpType.Score)
+            PowerUps[PowerUpType.Score].Use(ref amount);
+            ScorePowerUps.Remove(PowerUps[PowerUpType.Score]);
+            PowerUps.Remove(PowerUpType.Score);
+            if (ScorePowerUps.Count > 0)
             {
-                ScorePowerUps.Remove(PowerUps[powerUpType]);
-                return;
+                PowerUps.Add(PowerUpType.Score, ScorePowerUps[ScorePowerUps.Count - 1]);
             }
-            TriesPowerUps.Remove(PowerUps[powerUpType]);
+        }
+
+        public static void UseTries(ref int amount)
+        {
+            if (PowerUps.ContainsKey(PowerUpType.Tries) == false) return;
+            PowerUps[PowerUpType.Tries].Use(ref amount);
+            TriesPowerUps.Remove(PowerUps[PowerUpType.Tries]);
+            PowerUps.Remove(PowerUpType.Tries);
+            if (TriesPowerUps.Count > 0)
+            {
+                PowerUps.Add(PowerUpType.Tries, TriesPowerUps[TriesPowerUps.Count - 1]);
+            }
+            
         }
 
         public static void UseTime(ref float amount)
         {
             if (TimePowerUps.Count == 0) return;
-            TimePowerUps[TimePowerUps.Count].Use(ref amount);
-            TimePowerUps.Remove(TimePowerUps[TimePowerUps.Count]);
+            TimePowerUps[TimePowerUps.Count - 1].Use(ref amount);
+            TimePowerUps.Remove(TimePowerUps[TimePowerUps.Count - 1]);
         }
 
         public static void AddTriesPowerUp(TriesPowerUp powerUp)
@@ -73,10 +79,5 @@ namespace MathGame.Core
             TimePowerUps.Add(powerUp);
         }
 
-        public void UseScorePowerUp()
-        {
-            RecentScorePowerUp.Use(ref score.value);
-            scoreDisplayer.UpdateLabel();
-        }
     }
 }

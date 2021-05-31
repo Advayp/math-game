@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MathGame.Core
+﻿namespace MathGame.Core
 {
     public interface IManageScore
     {
@@ -8,7 +6,7 @@ namespace MathGame.Core
 
         void LowerScore();
 
-        FloatVariable Score { get; set; }
+        FloatVariable Score { get; }
 
     }
 }

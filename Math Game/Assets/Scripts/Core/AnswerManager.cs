@@ -40,7 +40,13 @@ namespace MathGame.Core
 
         private void Start()
         {
-            timer.StartTimer(mainQuestion.seconds);
+            timer.StartTimer(mainQuestion.seconds + 1);
+        }
+
+        private void OnEnable()
+        {
+            if (_answerDetermine.HasQuestionBeenAnswered) return;
+            timer.Resume();
         }
 
         private void Update()
@@ -64,7 +70,7 @@ namespace MathGame.Core
                 _scoreManager.IncreaseScore();
             }
 
-            timer.StopTimer();
+            timer.Stop();
             Scored?.Invoke();
             QuestionCompleted?.Invoke();
             DisableAllAnswerButtons();
@@ -75,7 +81,7 @@ namespace MathGame.Core
         {
             _answerDetermine.ShowCorrectAnswer();
             DisableAllAnswerButtons();
-            timer.StopTimer();
+            timer.Stop();
             Scored?.Invoke();
             QuestionCompleted?.Invoke();
         }
@@ -90,8 +96,9 @@ namespace MathGame.Core
 
         public void UseScorePowerUp()
         {
-            PowerUpManager.Use(PowerUpType.Score, ref _scoreManager.Score.value);
+            PowerUpManager.UseScore(ref _scoreManager.Score.value);
             Scored?.Invoke();
         }
+        
     }
 }

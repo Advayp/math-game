@@ -1,14 +1,15 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace MathGame.Core
 {
     public class Timer : MonoBehaviour
     {
         [HideInInspector]
-        public float TimeRemaining;
+        public float timeRemaining;
 
-        public bool IsComplete => Mathf.FloorToInt(TimeRemaining % 60) <= 0;
+        public bool IsComplete => Mathf.FloorToInt(timeRemaining % 60) <= 0;
 
         private TMP_Text _timerText;
         private bool _hasTimerStarted = false;
@@ -18,12 +19,11 @@ namespace MathGame.Core
             _timerText = GetComponent<TMP_Text>();
         }
 
-        // Update is called once per frame
         private void Update()
         {
             if (_hasTimerStarted == false) return;
-            TimeRemaining = Mathf.Clamp(TimeRemaining - Time.deltaTime, 0, float.MaxValue);
-            DisplayTime(TimeRemaining);
+            timeRemaining = Mathf.Clamp(timeRemaining - Time.deltaTime, 0, float.MaxValue);
+            DisplayTime(timeRemaining);
         }
 
         private void DisplayTime(float timeToDisplay)
@@ -31,23 +31,28 @@ namespace MathGame.Core
             var minutes = Mathf.FloorToInt(timeToDisplay / 60);
             var seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
-            _timerText.SetText($"{minutes:00}:{seconds:00}");
+            _timerText.SetText($"{(minutes * 60) + seconds}");
         }
 
         public void StartTimer(float time)
         {
-            TimeRemaining = time;
+            timeRemaining = time;
             _hasTimerStarted = true;
         }
 
-        public void StopTimer()
+        public void Resume()
+        {
+            _hasTimerStarted = true;
+        }
+        
+        public void Stop()
         {
             _hasTimerStarted = false;
         }
 
         public void UseTimePowerUp()
         {
-            PowerUpManager.UseTime(ref TimeRemaining);
+            PowerUpManager.UseTime(ref timeRemaining);
         }
     }
 }

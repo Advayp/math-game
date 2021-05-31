@@ -13,15 +13,19 @@ namespace MathGame.Managers
 
         [SerializeField] private Color wrongColor;
 
+
+        public bool HasQuestionBeenAnswered { get; private set; }
         private Tries _tries;
 
         private void Start()
         {
             _tries = new Tries(mainQuestion.tries);
+            HasQuestionBeenAnswered = false;
         }
 
         public void HandleCorrectAnswer(AnswerChecker answer)
         {
+            HasQuestionBeenAnswered = true;
             answer.ChangeImageColor(correctColor);
         }
 
@@ -43,6 +47,11 @@ namespace MathGame.Managers
         public bool IsWrongAnswer(AnswerChecker answer)
         {
             return answer.answerToCheck != correctAnswer.answerToCheck;
+        }
+
+        public void UseTries()
+        {
+           PowerUpManager.UseTries(ref _tries.remainingTries); 
         }
     }
 }

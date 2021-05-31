@@ -16,5 +16,10 @@ namespace MathGame.PowerUps
         {
             amount += _triesAdded;
         }
+
+        public int GetInfo()
+        {
+            return _triesAdded;
+        }
     }
 }

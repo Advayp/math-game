@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using MathGame.Core;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -27,11 +28,27 @@ namespace MathGame.Managers
             _counter.Increment();
             if (_counter.HasReachedMax)
             {
-                // Start new Question Set
                 return;
             }
             questionGameObjects[_counter.Count].SetActive(true);
             nextButton.SetActive(false);
+        }
+
+        public void HideCurrentQuestion()
+        {
+            questionGameObjects[_counter.Count].SetActive(false);
+        }
+
+        public void ShowCurrentQuestion()
+        {
+            questionGameObjects[_counter.Count].SetActive(true);
+        }
+
+        public void UseTriesPowerUpForActiveQuestion()
+        {
+            var answerDeterminer = questionGameObjects[_counter.Count].GetComponentInChildren<IAnswerDetermine>();
+            
+            answerDeterminer.UseTries();
         }
         
     }
