@@ -48,7 +48,7 @@ namespace MathGame.Managers
         {
             var answerDeterminer = questionGameObjects[_counter.Count].GetComponentInChildren<IAnswerDetermine>();
             
-            answerDeterminer.UseTries();
+            answerDeterminer?.UseTries();
         }
         
     }

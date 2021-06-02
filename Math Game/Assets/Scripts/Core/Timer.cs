@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace MathGame.Core
 {
@@ -12,11 +11,12 @@ namespace MathGame.Core
         public bool IsComplete => Mathf.FloorToInt(timeRemaining % 60) <= 0;
 
         private TMP_Text _timerText;
-        private bool _hasTimerStarted = false;
+        private bool _hasTimerStarted;
 
         private void Start()
         {
             _timerText = GetComponent<TMP_Text>();
+            _hasTimerStarted = false;
         }
 
         private void Update()
@@ -34,7 +34,7 @@ namespace MathGame.Core
             _timerText.SetText($"{(minutes * 60) + seconds}");
         }
 
-        public void StartTimer(float time)
+        public void Start(float time)
         {
             timeRemaining = time;
             _hasTimerStarted = true;

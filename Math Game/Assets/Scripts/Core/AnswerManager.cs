@@ -40,7 +40,7 @@ namespace MathGame.Core
 
         private void Start()
         {
-            timer.StartTimer(mainQuestion.seconds + 1);
+            timer.Start(mainQuestion.seconds + 1);
         }
 
         private void OnEnable()

@@ -8,11 +8,7 @@ namespace MathGame.Managers
         [SerializeField] private Question mainQuestion;
         [SerializeField] private FloatVariable score;
 
-        public FloatVariable Score
-        {
-            get => score;
-            set => score = value;
-        }
+        public FloatVariable Score => score;
 
         public void IncreaseScore()
         {
