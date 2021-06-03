@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace MathGame.Core
+namespace MathGame
 {
     public class AnswerChecker : MonoBehaviour
     {

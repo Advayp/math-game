@@ -1,4 +1,3 @@
-using MathGame.Minigames.FirstPersonShooter.Core;
 using TMPro;
 using UnityEngine;
 

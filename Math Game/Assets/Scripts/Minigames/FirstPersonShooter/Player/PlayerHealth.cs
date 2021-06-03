@@ -1,5 +1,4 @@
-﻿using MathGame.Minigames.FirstPersonShooter.Core;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MathGame.Minigames.FirstPersonShooter.Player
 {

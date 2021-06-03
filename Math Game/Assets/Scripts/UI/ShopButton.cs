@@ -1,4 +1,3 @@
-using MathGame.Core;
 using UnityEngine;
 
 namespace MathGame.UI

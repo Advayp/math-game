@@ -1,5 +1,4 @@
-﻿using MathGame.Core;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MathGame.Managers
 {

@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace MathGame.Core
+namespace MathGame
 {
     public class Timer : MonoBehaviour
     {

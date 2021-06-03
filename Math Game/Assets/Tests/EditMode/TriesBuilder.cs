@@ -1,4 +1,4 @@
-﻿using MathGame.Core;
+﻿using MathGame;
 
 namespace Tests.EditMode
 {

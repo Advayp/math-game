@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace MathGame.Core
+namespace MathGame
 {
     public class ScoreDisplayer : MonoBehaviour
     {

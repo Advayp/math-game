@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MathGame.Core
+namespace MathGame
 {
 	[CreateAssetMenu]
 	public class Answer : ScriptableObject

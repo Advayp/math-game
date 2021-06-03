@@ -1,4 +1,4 @@
-using MathGame.Core;
+using MathGame;
 using NUnit.Framework;
 
 namespace Tests.EditMode

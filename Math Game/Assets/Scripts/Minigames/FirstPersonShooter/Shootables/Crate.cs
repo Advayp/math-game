@@ -1,6 +1,4 @@
-﻿using System;
-using MathGame.Minigames.FirstPersonShooter.Core;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MathGame.Minigames.FirstPersonShooter.Shootables
 {
@@ -23,9 +21,9 @@ namespace MathGame.Minigames.FirstPersonShooter.Shootables
             Destroy(gameObject); 
         }
 
-        private static void Log(string message)
+        private void Log(string message)
         {
-            Debug.Log(message);
+            Debug.Log(message, this);
         }
     }
 }

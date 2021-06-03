@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using MathGame.PowerUps;
 using UnityEngine;
 
-namespace MathGame.Core
+namespace MathGame
 {
     public class PowerUpManager : MonoBehaviour
     {

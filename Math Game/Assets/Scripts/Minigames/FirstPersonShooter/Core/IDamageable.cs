@@ -1,4 +1,4 @@
-﻿namespace MathGame.Minigames.FirstPersonShooter.Core
+﻿namespace MathGame.Minigames.FirstPersonShooter
 {
     public interface IDamageable
     {

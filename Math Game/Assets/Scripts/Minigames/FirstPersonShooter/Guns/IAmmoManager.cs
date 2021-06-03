@@ -2,7 +2,8 @@
 {
     public interface IAmmoManager
     {
-        bool IsReloading { get; set; }
+        int CurrentAmmoCount { get; }
+        bool IsReloading { get; }
         bool UseBullet();
         void StopReloading();
         void StartReloading();

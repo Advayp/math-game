@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using MathGame.Core;
 using UnityEngine.Serialization;
 
 namespace MathGame.Display

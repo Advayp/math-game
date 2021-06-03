@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MathGame.Minigames.FirstPersonShooter.Guns
 {
@@ -21,7 +20,8 @@ namespace MathGame.Minigames.FirstPersonShooter.Guns
         private void ShowEffect(Vector3 position, Vector3 normal)
         {
             var desiredRotation = Quaternion.LookRotation(normal);
-            Instantiate(impactEffect, position, desiredRotation);
+            var impactGO = Instantiate(impactEffect, position, desiredRotation);
+            Destroy(impactGO, 1f);
         }
 
 

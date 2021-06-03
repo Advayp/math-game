@@ -2,29 +2,30 @@
 {
     public class AmmoManager : IAmmoManager
     {
-        public bool IsReloading { get; set; }
-        
-        private int _currentAmmoCount;
+        public int CurrentAmmoCount { get; private set; }
+
+        public bool IsReloading { get; private set; }
+
         private readonly int _maxCount;
 
         public AmmoManager(int maxCount)
         {
             _maxCount = maxCount;
-            _currentAmmoCount = maxCount;
+            CurrentAmmoCount = maxCount;
             IsReloading = false;
         }
 
 
         public bool UseBullet()
         {
-            _currentAmmoCount--;
-            return _currentAmmoCount >= 0;
+            CurrentAmmoCount--;
+            return CurrentAmmoCount >= 0;
         }
 
         public void StopReloading()
         {
             IsReloading = false;
-            _currentAmmoCount = _maxCount;
+            CurrentAmmoCount = _maxCount;
         }
 
         public void StartReloading()

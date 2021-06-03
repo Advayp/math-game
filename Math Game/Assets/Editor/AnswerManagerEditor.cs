@@ -1,5 +1,4 @@
 using UnityEditor;
-using MathGame.Core;
 
 namespace MathGame.EditorTools
 {

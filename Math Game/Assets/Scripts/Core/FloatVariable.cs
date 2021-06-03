@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace MathGame.Core
+namespace MathGame
 {
 	[CreateAssetMenu]
 	public class FloatVariable : ScriptableObject

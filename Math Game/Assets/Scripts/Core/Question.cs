@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace MathGame.Core
+namespace MathGame
 {
     [CreateAssetMenu]
     public class Question : ScriptableObject

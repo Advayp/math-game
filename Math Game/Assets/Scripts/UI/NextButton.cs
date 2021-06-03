@@ -1,5 +1,4 @@
 using UnityEngine;
-using MathGame.Core;
 using UnityEngine.Serialization;
 
 namespace MathGame.UI

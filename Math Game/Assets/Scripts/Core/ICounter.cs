@@ -1,4 +1,4 @@
-﻿namespace MathGame.Managers
+﻿namespace MathGame
 {
 	public interface ICounter
 	{

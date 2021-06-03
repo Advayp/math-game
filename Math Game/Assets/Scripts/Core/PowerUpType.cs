@@ -1,4 +1,4 @@
-﻿namespace MathGame.Core
+﻿namespace MathGame
 {
     public enum PowerUpType
     {

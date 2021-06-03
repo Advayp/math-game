@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 95cd86429b8c6944097cdf08e66c6968, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1396,7 +1396,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: NaN, y: 8.4e-44, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -2981,6 +2981,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0.00027466, y: 66}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1271788593 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3093247017107192110, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+  m_PrefabInstance: {fileID: 1870449466}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a66800f5b89e73943a8f45f172af3650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1294560110
 GameObject:
   m_ObjectHideFlags: 0
@@ -4413,6 +4424,78 @@ PrefabInstance:
       propertyPath: answerToCheck
       value: 
       objectReference: {fileID: 11400000, guid: d7efd85dcdfb1b1439b109857d0d5ffc, type: 2}
+    - target: {fileID: 3851992798531282922, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1870449474}
+    - target: {fileID: 3851992798531282922, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Check
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851992798531282922, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MathGame.AnswerManager, Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851992798531282922, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: MathGame.AnswerChecker, Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851992799898029832, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1870449474}
+    - target: {fileID: 3851992799898029832, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Check
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851992799898029832, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MathGame.AnswerManager, Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851992799898029832, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: MathGame.AnswerChecker, Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851992800036145938, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1870449474}
+    - target: {fileID: 3851992800036145938, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Check
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851992800036145938, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MathGame.AnswerManager, Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851992800036145938, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: MathGame.AnswerChecker, Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399634786365189218, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399634786365189218, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1870449474}
+    - target: {fileID: 7399634786365189218, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Check
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399634786365189218, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MathGame.AnswerManager, Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399634786365189218, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1271788593}
+    - target: {fileID: 7399634786365189218, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: MathGame.AnswerChecker, Scripts
+      objectReference: {fileID: 0}
     - target: {fileID: 8730408666095065668, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
       propertyPath: AnswerToCheck
       value: 
@@ -4546,6 +4629,17 @@ MonoBehaviour:
   correctAnswer: {fileID: 791726289}
   correctColor: {r: 0.33333334, g: 0.93333334, b: 0.32941177, a: 1}
   wrongColor: {r: 0.8784314, g: 0.16078432, b: 0.16078432, a: 1}
+--- !u!114 &1870449474 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2976580472153356911, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+  m_PrefabInstance: {fileID: 1870449466}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870449469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb988154b3589d45a632f8adf85b546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1870449476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5143,7 +5237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3851992798531282922, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MathGame.Core.AnswerManager, Scripts
+      value: MathGame.AnswerManager, Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 3851992798531282922, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -5159,11 +5253,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3851992798531282922, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: MathGame.Core.AnswerChecker, Scripts
+      value: MathGame.AnswerChecker, Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 3851992798531282922, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851992799898029832, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2976580472099438333}
+    - target: {fileID: 3851992799898029832, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Check
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851992799898029832, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MathGame.AnswerManager, Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851992799898029832, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: MathGame.AnswerChecker, Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 3851992800036145938, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -5203,7 +5313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3851992800036145938, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MathGame.Core.AnswerManager, Scripts
+      value: MathGame.AnswerManager, Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 3851992800036145938, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -5219,7 +5329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3851992800036145938, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: MathGame.Core.AnswerChecker, Scripts
+      value: MathGame.AnswerChecker, Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 3851992800036145938, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -5263,7 +5373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7399634786365189218, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MathGame.Core.AnswerManager, Scripts
+      value: MathGame.AnswerManager, Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 7399634786365189218, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -5279,7 +5389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7399634786365189218, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: MathGame.Core.AnswerChecker, Scripts
+      value: MathGame.AnswerChecker, Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 7399634786365189218, guid: c53fa4a6e62b73c43874786efd0ac234, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
