@@ -3,7 +3,7 @@
 	public interface ICounter
 	{
 		int Count { get; }
-		bool HasReachedMax { get; set; }
+		bool HasReachedMax { get; }
 
 		void Increment();
 	}

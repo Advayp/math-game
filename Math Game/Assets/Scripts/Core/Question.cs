@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -18,11 +17,5 @@ namespace MathGame
 
         [FormerlySerializedAs("Seconds")]
         public int seconds;
-
-        [FormerlySerializedAs("CorrectAnswer")]
-        public Answer correctAnswer;
-
-        [FormerlySerializedAs("WrongAnswers")]
-        public List<Answer> wrongAnswers;
     }
 }

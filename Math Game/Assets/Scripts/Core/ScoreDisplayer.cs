@@ -39,7 +39,7 @@ namespace MathGame
             AnswerManager.Scored += UpdateLabel;
         }
 
-        public void UpdateLabel()
+        private void UpdateLabel()
         {
             _label.SetText($"Score: {score.value}");
         }

@@ -2,6 +2,7 @@
 {
     public class AmmoManager : IAmmoManager
     {
+        public bool NeedsToReload => CurrentAmmoCount != _maxCount;
         public int CurrentAmmoCount { get; private set; }
 
         public bool IsReloading { get; private set; }

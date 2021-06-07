@@ -8,7 +8,7 @@ namespace Tests.EditMode
         [Test]
         public void Score_Increases_IfIncrementIsCalled()
         {
-            var amount = 0;
+            var amount = 1;
             ScorePowerUp scorePowerUp = A.ScorePowerUp.WithAddedValue(20);
             
             scorePowerUp.Use(ref amount);

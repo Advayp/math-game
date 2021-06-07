@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using MathGame.PowerUps;
 using UnityEngine;
 
@@ -12,9 +13,9 @@ namespace MathGame
         private static readonly List<IPowerUp<int>> ScorePowerUps = new List<IPowerUp<int>>();
         private static readonly List<IPowerUp<float>> TimePowerUps = new List<IPowerUp<float>>();
         
-        public static IPowerUp<int> RecentTriesPowerUp => TriesPowerUps.Count == 0 ? null : TriesPowerUps[TriesPowerUps.Count - 1];
-        public static IPowerUp<int> RecentScorePowerUp => ScorePowerUps.Count == 0 ? null : ScorePowerUps[ScorePowerUps.Count - 1];
-        public static IPowerUp<float> RecentTimePowerUp => TimePowerUps.Count == 0 ? null : TimePowerUps[TimePowerUps.Count - 1];
+        public static IPowerUp<int> RecentTriesPowerUp => TriesPowerUps.Count == 0 ? null : TriesPowerUps.Last();
+        public static IPowerUp<int> RecentScorePowerUp => ScorePowerUps.Count == 0 ? null : ScorePowerUps.Last();
+        public static IPowerUp<float> RecentTimePowerUp => TimePowerUps.Count == 0 ? null : TimePowerUps.Last();
         
         private void Start()
         {
@@ -26,6 +27,8 @@ namespace MathGame
             PowerUps[PowerUpType.Score].Use(ref amount);
             ScorePowerUps.Remove(PowerUps[PowerUpType.Score]);
             PowerUps.Remove(PowerUpType.Score);
+            
+            // Adds a new powerUp back after we remove the key
             if (ScorePowerUps.Count > 0)
             {
                 PowerUps.Add(PowerUpType.Score, ScorePowerUps[ScorePowerUps.Count - 1]);
@@ -40,7 +43,7 @@ namespace MathGame
             PowerUps.Remove(PowerUpType.Tries);
             if (TriesPowerUps.Count > 0)
             {
-                PowerUps.Add(PowerUpType.Tries, TriesPowerUps[TriesPowerUps.Count - 1]);
+                PowerUps.Add(PowerUpType.Tries, TriesPowerUps.Last());
             }
             
         }
@@ -48,8 +51,8 @@ namespace MathGame
         public static void UseTime(ref float amount)
         {
             if (TimePowerUps.Count == 0) return;
-            TimePowerUps[TimePowerUps.Count - 1].Use(ref amount);
-            TimePowerUps.Remove(TimePowerUps[TimePowerUps.Count - 1]);
+            TimePowerUps.Last().Use(ref amount);
+            TimePowerUps.Remove(TimePowerUps.Last());
         }
 
         public static void AddTriesPowerUp(TriesPowerUp powerUp)

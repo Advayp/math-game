@@ -3,11 +3,6 @@ using UnityEngine;
 
 namespace MathGame.Minigames.FirstPersonShooter.Guns
 {
-    public interface IAmmoDisplayer
-    {
-        void UpdateText(int ammoCount);
-    }
-
     [RequireComponent(typeof(TMP_Text))]
     public class DisplayAmmo : MonoBehaviour, IAmmoDisplayer
     {

@@ -1,9 +1,9 @@
 using UnityEditor;
 
-namespace MathGame.EditorTools
+namespace MathGame.Editor
 {
 	[CustomEditor(typeof(AnswerManager))]
-	public class AnswerManagerEditor : Editor
+	public class AnswerManagerEditor : UnityEditor.Editor
 	{
 	}
 }
