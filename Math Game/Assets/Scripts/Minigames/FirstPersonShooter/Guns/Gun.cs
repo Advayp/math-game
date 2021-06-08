@@ -53,7 +53,7 @@ namespace MathGame.Minigames.FirstPersonShooter.Guns
                 StartCoroutine(ReloadCoroutine());
             }
             if (!_gunInput.GetInput() || !(Time.time >= _nextTimeToFire)) return;
-            if (_ammoManager.UseBullet())
+            if (_ammoManager.UseBullet() && _ammoManager.IsReloading == false)
             {
                 Shoot();
             }

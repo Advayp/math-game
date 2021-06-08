@@ -9,7 +9,7 @@
             remainingTries = maxTries;
         }
 
-        public bool UseTry()
+        public virtual bool UseTry()
         {
             remainingTries--;
             return remainingTries > 0;

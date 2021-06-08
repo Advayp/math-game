@@ -18,10 +18,11 @@ namespace MathGame.Minigames.FirstPersonShooter.EnemyLogic
         public void Process(GameObject enemyToConfigure)
         {
             var enemy = enemyToConfigure.GetComponent<Enemy>();
-            var enemyAttack = enemyToConfigure.GetComponent<EnemyAttack>();
+            var enemyAttack = enemyToConfigure.GetComponent<IEnemyAttack>();
 
             enemy.target = _target;
             enemyAttack.DoesDamage = _doesDamage;
+            enemyAttack.Target = _target;
         }
 
         public GameObject Create(Vector3 position, Quaternion rotation)

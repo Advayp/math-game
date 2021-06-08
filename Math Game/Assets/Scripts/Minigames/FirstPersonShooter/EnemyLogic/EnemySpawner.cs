@@ -42,7 +42,6 @@ namespace MathGame.Minigames.FirstPersonShooter.EnemyLogic
         {
             var enemy = Instantiate(enemyPrefab, spawnLocations[Random.Range(0, spawnLocations.Length)].position,
                 Quaternion.identity);
-            
             _factory.Process(enemy);
         }
 

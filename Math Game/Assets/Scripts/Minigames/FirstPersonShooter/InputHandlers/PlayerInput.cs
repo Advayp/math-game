@@ -8,5 +8,10 @@ namespace MathGame.Minigames.FirstPersonShooter.InputHandlers
         {
             return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         }
+
+        public bool GetJump()
+        {
+            return Input.GetButtonDown("Jump");
+        }
     }
 }

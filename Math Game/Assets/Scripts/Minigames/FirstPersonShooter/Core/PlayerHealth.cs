@@ -1,24 +1,30 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-namespace MathGame.Minigames.FirstPersonShooter.Player
+namespace MathGame.Minigames.FirstPersonShooter
 {
     public class PlayerHealth : MonoBehaviour, IDamageable
     {
         [SerializeField] private int maxHealth;
         [SerializeField] private GameObject[] thingsToDisableOnDeath;
-        
+
+
+        public event Action<int> Damaged;
+        public event Action Death;
 
         private int _currentHealth;
+
+        public int MaxHealth => maxHealth;
 
         private void Start()
         {
             _currentHealth = maxHealth;
         }
 
-
         public void TakeDamage(int amount)
         {
             _currentHealth -= amount;
+            Damaged?.Invoke(_currentHealth);
             if (_currentHealth <= 0)
             {
                 HandleDeath();
@@ -27,14 +33,17 @@ namespace MathGame.Minigames.FirstPersonShooter.Player
 
         private void HandleDeath()
         {
-            Log("Player Died");
+            Death?.Invoke();
             foreach (var thingToDisable in thingsToDisableOnDeath)
             {
-                var disable = thingToDisable.GetComponent<IEnableable>();
-                disable.Disable();
+                var disables = thingToDisable.GetComponents<IEnableable>();
+
+                foreach (var enableable in disables)
+                {
+                    enableable.Disable();
+                }
             }
         }
 
-        private static void Log(string message) => Debug.Log(message);
     }
 }
