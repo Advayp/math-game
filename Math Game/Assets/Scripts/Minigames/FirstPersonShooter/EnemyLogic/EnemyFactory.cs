@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MathGame.Minigames.FirstPersonShooter.EnemyLogic
+namespace Discovery.Minigames.FirstPersonShooter.EnemyLogic
 {
     public class EnemyFactory
     {

@@ -1,4 +1,4 @@
-﻿namespace MathGame.Shop
+﻿namespace Discovery.Shop
 {
     public class CostDeterminer : ICostDeterminer
     {
@@ -14,7 +14,7 @@
 
         public int CostForScorePowerUp(int amount)
         {
-            return amount * 40;
+            return amount * 10;
         }
     }
 }

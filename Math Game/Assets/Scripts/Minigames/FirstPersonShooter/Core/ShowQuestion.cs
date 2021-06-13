@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace MathGame.Minigames.FirstPersonShooter
+namespace Discovery.Minigames.FirstPersonShooter
 {
     public abstract class ShowQuestion : MonoBehaviour
     {

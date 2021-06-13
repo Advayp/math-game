@@ -1,8 +1,8 @@
-﻿using MathGame.Minigames.FirstPersonShooter.EnemyLogic;
+﻿using Discovery.Minigames.FirstPersonShooter.EnemyLogic;
 using UnityEditor;
 using UnityEngine;
 
-namespace MathGame.Editor
+namespace Discovery.Editor
 {
     [CustomEditor(typeof(EnemySpawner))]
     public class EnemySpawnerEditor : UnityEditor.Editor

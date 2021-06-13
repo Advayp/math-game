@@ -1,8 +1,7 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
-namespace MathGame.Minigames.FirstPersonShooter.UI
+namespace Discovery.Minigames.FirstPersonShooter.UI
 {
     public class FPSScoreDisplayer : MonoBehaviour
     {
@@ -11,6 +10,8 @@ namespace MathGame.Minigames.FirstPersonShooter.UI
 
         [SerializeField, Tooltip("The Score Manager to Track")]
         private FpsScoreManager scoreManager;
+
+
 
         private void Awake()
         {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MathGame.Minigames.FirstPersonShooter
+namespace Discovery.Minigames.FirstPersonShooter
 {
     public abstract class RuntimeSet<T> : ScriptableObject
     {

@@ -1,4 +1,4 @@
-﻿namespace MathGame.Shop
+﻿namespace Discovery.Shop
 {
     public interface ICostDeterminer
     {

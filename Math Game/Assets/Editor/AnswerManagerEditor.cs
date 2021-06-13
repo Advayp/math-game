@@ -1,6 +1,6 @@
 using UnityEditor;
 
-namespace MathGame.Editor
+namespace Discovery.Editor
 {
 	[CustomEditor(typeof(AnswerManager))]
 	public class AnswerManagerEditor : UnityEditor.Editor

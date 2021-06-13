@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace MathGame.Minigames.FirstPersonShooter.Guns
+namespace Discovery.Minigames.FirstPersonShooter.Guns
 {
     public class Gun : MonoBehaviour, IEnableable
     {
@@ -79,7 +79,7 @@ namespace MathGame.Minigames.FirstPersonShooter.Guns
         private void StopReloadAnimation() => _gunEffects.OnReloadStop(); 
 
         [ContextMenu("Start Reloading")]
-        private void StartReloadAnimation() => _gunEffects.OnReloadStart(); 
+        private void StartReloadAnimation() => _gunEffects.OnReloadStart();
 
         private void Shoot()
         {

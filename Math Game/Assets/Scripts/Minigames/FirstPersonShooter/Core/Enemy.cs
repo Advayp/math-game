@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-namespace MathGame.Minigames.FirstPersonShooter
+namespace Discovery.Minigames.FirstPersonShooter
 {
     [RequireComponent(typeof(NavMeshAgent))]
     public class Enemy : MonoBehaviour, IEnableable
     {
         [SerializeField] private EnemySet set;
-        
-        
+
         [HideInInspector]
         public Transform target;
 
         private NavMeshAgent _agent;
-        private bool _isEnabled = true;
+
+        public bool IsEnabled { get; private set; } = true;
 
         private void Awake()
         {
@@ -23,23 +23,26 @@ namespace MathGame.Minigames.FirstPersonShooter
 
         private void Update()
         {
-            if (_isEnabled == false) return;
+            if (IsEnabled == false) return;
             _agent.SetDestination(target.position);
         }
 
         private void OnDestroy()
         {
-           set.Remove(this); 
+            set.Remove(this);
         }
 
         public void Enable()
         {
-            _isEnabled = true;
+            _agent.isStopped = false;
+            IsEnabled = true;
         }
 
         public void Disable()
         {
-            _isEnabled = false;
+            _agent.isStopped = true;
+            IsEnabled = false;
         }
+
     }
 }

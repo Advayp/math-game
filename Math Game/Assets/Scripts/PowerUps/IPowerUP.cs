@@ -1,4 +1,4 @@
-﻿namespace MathGame.PowerUps
+﻿namespace Discovery.PowerUps
 {
     public interface IPowerUp<T>
     {

@@ -1,4 +1,4 @@
-﻿namespace MathGame
+﻿namespace Discovery
 {
     public class Tries
     {
@@ -9,7 +9,7 @@
             remainingTries = maxTries;
         }
 
-        public virtual bool UseTry()
+        public bool UseTry()
         {
             remainingTries--;
             return remainingTries > 0;

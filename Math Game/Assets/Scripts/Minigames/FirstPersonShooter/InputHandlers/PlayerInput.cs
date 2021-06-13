@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MathGame.Minigames.FirstPersonShooter.InputHandlers
+namespace Discovery.Minigames.FirstPersonShooter.InputHandlers
 {
     public class PlayerInput : MonoBehaviour, IPlayerInput
     {

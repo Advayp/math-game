@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using MathGame.PowerUps;
+using Discovery.PowerUps;
 using UnityEngine;
 
-namespace MathGame
+namespace Discovery
 {
     public class PowerUpManager : MonoBehaviour
     {
@@ -16,7 +16,7 @@ namespace MathGame
         public static IPowerUp<int> RecentTriesPowerUp => TriesPowerUps.Count == 0 ? null : TriesPowerUps.Last();
         public static IPowerUp<int> RecentScorePowerUp => ScorePowerUps.Count == 0 ? null : ScorePowerUps.Last();
         public static IPowerUp<float> RecentTimePowerUp => TimePowerUps.Count == 0 ? null : TimePowerUps.Last();
-        
+
         private void Start()
         {
             AddScorePowerUp(new ScorePowerUp(2));
@@ -28,7 +28,7 @@ namespace MathGame
             ScorePowerUps.Remove(PowerUps[PowerUpType.Score]);
             PowerUps.Remove(PowerUpType.Score);
             
-            // Adds a new powerUp back after we remove the key
+            // Adds a new PowerUp back after we remove the key
             if (ScorePowerUps.Count > 0)
             {
                 PowerUps.Add(PowerUpType.Score, ScorePowerUps[ScorePowerUps.Count - 1]);

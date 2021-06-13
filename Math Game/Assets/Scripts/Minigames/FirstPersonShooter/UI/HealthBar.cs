@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MathGame.Minigames.FirstPersonShooter.UI
+namespace Discovery.Minigames.FirstPersonShooter.UI
 {
     [RequireComponent(typeof(Slider))]
     public class HealthBar : MonoBehaviour
@@ -19,7 +19,7 @@ namespace MathGame.Minigames.FirstPersonShooter.UI
 
         private void OnEnable()
         {
-            player.Damaged += UpdateValue;
+            player.HealthChanged += UpdateValue;
         }
 
         private void Start()
@@ -31,7 +31,7 @@ namespace MathGame.Minigames.FirstPersonShooter.UI
 
         private void OnDisable()
         {
-            player.Damaged -= UpdateValue;
+            player.HealthChanged -= UpdateValue;
         }
 
         private void UpdateValue(int newHealth)

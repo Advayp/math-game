@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace MathGame
+namespace Discovery
 {
     public class Timer : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-﻿using MathGame.Managers;
+﻿using Discovery.Managers;
 
 // Builder Pattern
 namespace Tests.EditMode

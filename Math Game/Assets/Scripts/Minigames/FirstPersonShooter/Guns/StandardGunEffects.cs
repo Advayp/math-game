@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-namespace MathGame.Minigames.FirstPersonShooter.Guns
+namespace Discovery.Minigames.FirstPersonShooter.Guns
 {
     [RequireComponent(typeof(Animator))]
     public class StandardGunEffects : MonoBehaviour, IGunEffect
     {
         [SerializeField] private ParticleSystem muzzleFlash;
-        
+
         private Animator _animator;
         private static readonly int IsReloading = Animator.StringToHash("IsReloading");
 

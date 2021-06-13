@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
-namespace MathGame.Minigames.FirstPersonShooter
+namespace Discovery.Minigames.FirstPersonShooter
 {
     [RequireComponent(typeof(Rigidbody))]
     public class Bullet : MonoBehaviour
@@ -14,6 +15,7 @@ namespace MathGame.Minigames.FirstPersonShooter
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
+            StartCoroutine(DeathCoroutine());
         }
 
         private void FixedUpdate()
@@ -23,19 +25,22 @@ namespace MathGame.Minigames.FirstPersonShooter
 
         private void OnCollisionEnter(Collision other)
         {
-            if (!other.gameObject.CompareTag(playerTag))
-            {
-                Destroy(gameObject);
-                return;
-            }
-
             var damageable = other.gameObject.GetComponent<IDamageable>();
-            damageable.TakeDamage(damageDealt);
+            damageable?.TakeDamage(damageDealt);
+            
+            Destroy(gameObject);
+
         }
 
         public void Initialize(int damage)
         {
             damageDealt = damage;
+        }
+
+        private IEnumerator DeathCoroutine()
+        {
+            yield return new WaitForSeconds(2f);
+            Destroy(gameObject);
         }
     }
 }

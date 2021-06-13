@@ -1,9 +1,8 @@
-﻿namespace MathGame.PowerUps
+﻿namespace Discovery.PowerUps
 {
     [System.Serializable]
     public class TimePowerUp : IPowerUp<float>
     {
-
         private readonly int _timeAdded;
 
         public TimePowerUp(int timeAdded)

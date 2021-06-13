@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MathGame.UI
+namespace Discovery.UI
 {
     public class ShopButton : MonoBehaviour
     {

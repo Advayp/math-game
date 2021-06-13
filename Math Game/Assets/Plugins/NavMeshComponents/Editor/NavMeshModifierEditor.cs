@@ -1,17 +1,19 @@
-using UnityEngine.AI;
+using Plugins.NavMeshComponents.Scripts;
+using UnityEditor;
+using UnityEditor.AI;
 
-namespace UnityEditor.AI
+namespace Plugins.NavMeshComponents.Editor
 {
     [CanEditMultipleObjects]
     [CustomEditor(typeof(NavMeshModifier))]
-    class NavMeshModifierEditor : Editor
+    internal class NavMeshModifierEditor : UnityEditor.Editor
     {
-        SerializedProperty m_AffectedAgents;
-        SerializedProperty m_Area;
-        SerializedProperty m_IgnoreFromBuild;
-        SerializedProperty m_OverrideArea;
+        private SerializedProperty m_AffectedAgents;
+        private SerializedProperty m_Area;
+        private SerializedProperty m_IgnoreFromBuild;
+        private SerializedProperty m_OverrideArea;
 
-        void OnEnable()
+        private void OnEnable()
         {
             m_AffectedAgents = serializedObject.FindProperty("m_AffectedAgents");
             m_Area = serializedObject.FindProperty("m_Area");
@@ -21,7 +23,7 @@ namespace UnityEditor.AI
             NavMeshVisualizationSettings.showNavigation++;
         }
 
-        void OnDisable()
+        private void OnDisable()
         {
             NavMeshVisualizationSettings.showNavigation--;
         }

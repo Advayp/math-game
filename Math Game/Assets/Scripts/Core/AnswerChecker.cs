@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace MathGame
+namespace Discovery
 {
     public class AnswerChecker : MonoBehaviour
     {
@@ -13,7 +13,8 @@ namespace MathGame
         public Button answerButton;
 
         [FormerlySerializedAs("_image")]
-        [SerializeField] private Image image;
+        [SerializeField]
+        private Image image;
 
         public void ChangeImageColor(Color color)
         {

@@ -9,5 +9,6 @@
         public static TimerPowerUpBuilder TimerPowerUp => new TimerPowerUpBuilder();
         public static AmmoManagerBuilder AmmoManager => new AmmoManagerBuilder();
         public static ReloadCalculatorBuilder ReloadCalculator => new ReloadCalculatorBuilder();
+        public static StandardQuestionGeneratorBuilder QuestionGenerator => new StandardQuestionGeneratorBuilder();
     }
 }

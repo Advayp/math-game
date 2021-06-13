@@ -1,14 +1,14 @@
 ﻿using System;
 using UnityEngine;
 
-namespace MathGame.Minigames.FirstPersonShooter
+namespace Discovery.Minigames.FirstPersonShooter
 {
     public class EnemyHealth : MonoBehaviour, IDamageable
     {
         [SerializeField, Range(150, 200)] private int maxHealth;
 
         public static event Action OnDeath;
-        
+
         private int _health;
 
         private void Start()

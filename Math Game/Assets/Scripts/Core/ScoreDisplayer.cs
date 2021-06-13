@@ -1,13 +1,15 @@
+using Discovery.Shop;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace MathGame
+namespace Discovery
 {
     public class ScoreDisplayer : MonoBehaviour
     {
         [FormerlySerializedAs("_score")]
-        [SerializeField] private FloatVariable score;
+        [SerializeField]
+        private FloatVariable score;
 
         private TMP_Text _label;
 
@@ -19,6 +21,7 @@ namespace MathGame
         private void Start()
         {
             AnswerManager.Scored += UpdateLabel;
+            ItemPurchaser.OnPurchased += UpdateLabel;   
 #if UNITY_EDITOR
             score.value = 0;
 #endif
@@ -27,16 +30,19 @@ namespace MathGame
         private void OnDestroy()
         {
             AnswerManager.Scored -= UpdateLabel;
+            ItemPurchaser.OnPurchased -= UpdateLabel;
         }
 
         private void OnDisable()
         {
             AnswerManager.Scored -= UpdateLabel;
+            ItemPurchaser.OnPurchased -= UpdateLabel;
         }
 
         private void OnEnable()
         {
             AnswerManager.Scored += UpdateLabel;
+            ItemPurchaser.OnPurchased += UpdateLabel;
         }
 
         private void UpdateLabel()

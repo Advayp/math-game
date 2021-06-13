@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace MathGame.Minigames.FirstPersonShooter.UI
+namespace Discovery.Minigames.FirstPersonShooter.UI
 {
     public class FpsUIManager : MonoBehaviour
     {
         [SerializeField] private GameObject deathUI;
-        [SerializeField, Tooltip("The player whose death to track")] private PlayerHealth playerHealth;
-        
+        [SerializeField, Tooltip("The player whose death to track")]
+        private PlayerHealth playerHealth;
+
 
         private void OnEnable()
         {

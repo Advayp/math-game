@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace MathGame.UI
+namespace Discovery.UI
 {
     public class NextButton : MonoBehaviour
     {
         [FormerlySerializedAs("_nextButton")]
-        [SerializeField] private GameObject nextButton;
+        [SerializeField]
+        private GameObject nextButton;
 
         private void Start()
         {

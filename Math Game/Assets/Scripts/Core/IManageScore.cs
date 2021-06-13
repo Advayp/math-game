@@ -1,4 +1,4 @@
-﻿namespace MathGame
+﻿namespace Discovery
 {
     public interface IManageScore
     {

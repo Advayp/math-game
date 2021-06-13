@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MathGame.PowerUps
+namespace Discovery.PowerUps
 {
     public class PowerUpMenuManager : MonoBehaviour
     {

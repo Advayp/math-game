@@ -1,4 +1,4 @@
-﻿using MathGame;
+﻿using Discovery;
 
 namespace Tests.EditMode
 {
@@ -21,5 +21,6 @@ namespace Tests.EditMode
         {
             return builder.Build();
         }
+        
     }
 }

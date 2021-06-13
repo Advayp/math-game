@@ -1,4 +1,4 @@
-﻿using MathGame.PowerUps;
+﻿using Discovery.PowerUps;
 using NUnit.Framework;
 
 namespace Tests.EditMode

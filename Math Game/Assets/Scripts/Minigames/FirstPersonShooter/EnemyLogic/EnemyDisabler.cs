@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace MathGame.Minigames.FirstPersonShooter.EnemyLogic
+namespace Discovery.Minigames.FirstPersonShooter.EnemyLogic
 {
     public class EnemyDisabler : MonoBehaviour, IEnableable
     {

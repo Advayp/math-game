@@ -2,15 +2,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace MathGame.Managers
+namespace Discovery.Managers
 {
     public class QuestionManager : MonoBehaviour
     {
         [FormerlySerializedAs("_questionGameObjects")]
-        [SerializeField] private List<GameObject> questionGameObjects;
+        [SerializeField]
+        private List<GameObject> questionGameObjects;
 
         [FormerlySerializedAs("_nextButton")]
-        [SerializeField] private GameObject nextButton;
+        [SerializeField]
+        private GameObject nextButton;
 
 
         private ICounter _counter;
@@ -48,6 +50,12 @@ namespace MathGame.Managers
             var answerDeterminer = questionGameObjects[_counter.Count].GetComponentInChildren<IAnswerDetermine>();
             
             answerDeterminer?.UseTries();
+        }
+
+        public void UseScorePowerUpForActiveQuestion()
+        {
+            var scoreManager = questionGameObjects[_counter.Count].GetComponentInChildren<ScoreManager>();
+            scoreManager.UseScorePowerUp();
         }
         
     }

@@ -1,4 +1,4 @@
-﻿namespace MathGame.Minigames.FirstPersonShooter
+﻿namespace Discovery.Minigames.FirstPersonShooter
 {
     public interface IEnableable
     {

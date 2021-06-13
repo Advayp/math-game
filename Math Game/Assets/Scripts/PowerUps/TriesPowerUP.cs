@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MathGame.PowerUps
+namespace Discovery.PowerUps
 {
     [Serializable]
     public class TriesPowerUp : IPowerUp<int>

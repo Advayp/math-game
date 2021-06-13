@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace MathGame
+namespace Discovery
 {
     public class AnswerManager : MonoBehaviour
     {
@@ -17,10 +17,12 @@ namespace MathGame
         public AnswerChecker correctAnswer;
 
         [FormerlySerializedAs("_answerCheckers")]
-        [SerializeField] private List<AnswerChecker> answerCheckers;
+        [SerializeField]
+        private List<AnswerChecker> answerCheckers;
 
         [FormerlySerializedAs("_timer")]
-        [SerializeField] private Timer timer;
+        [SerializeField]
+        private Timer timer;
 
         #endregion Inspector Fields
 

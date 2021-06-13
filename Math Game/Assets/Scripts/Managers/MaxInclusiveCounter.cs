@@ -1,4 +1,4 @@
-﻿namespace MathGame.Managers
+﻿namespace Discovery.Managers
 {
 	public class MaxInclusiveCounter : ICounter
 	{

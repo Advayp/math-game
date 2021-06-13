@@ -1,4 +1,4 @@
-﻿using MathGame.PowerUps;
+﻿using Discovery.PowerUps;
 
 namespace Tests.EditMode
 {
@@ -11,7 +11,7 @@ namespace Tests.EditMode
             _triesToAdd = amount;
             return this;
         }
-        
+
         private TriesPowerUp Build()
         {
             return new TriesPowerUp(_triesToAdd);

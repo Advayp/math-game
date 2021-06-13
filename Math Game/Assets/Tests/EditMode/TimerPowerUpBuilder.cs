@@ -1,4 +1,4 @@
-﻿using MathGame.PowerUps;
+﻿using Discovery.PowerUps;
 
 namespace Tests.EditMode
 {

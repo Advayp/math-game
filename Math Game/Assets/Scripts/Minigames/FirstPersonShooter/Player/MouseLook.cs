@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MathGame.Minigames.FirstPersonShooter.Player
+namespace Discovery.Minigames.FirstPersonShooter.Player
 {
     public class MouseLook : MonoBehaviour, IEnableable
     {

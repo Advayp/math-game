@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace MathGame.Minigames.FirstPersonShooter.Guns
+namespace Discovery.Minigames.FirstPersonShooter.Guns
 {
     [RequireComponent(typeof(TMP_Text))]
     public class DisplayAmmo : MonoBehaviour, IAmmoDisplayer

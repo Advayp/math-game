@@ -1,13 +1,18 @@
 using UnityEngine;
 
-namespace MathGame.Minigames.FirstPersonShooter.Player
+namespace Discovery.Minigames.FirstPersonShooter.Player
 {
     public class CameraMovement : MonoBehaviour, IEnableable
     {
         [SerializeField] private Transform playerHead;
 
         private bool _isEnabled = true;
-        
+
+        private void Awake()
+        {
+           playerHead.Require(this); 
+        }
+
         private void Update()
         {
             if (_isEnabled == false) return;

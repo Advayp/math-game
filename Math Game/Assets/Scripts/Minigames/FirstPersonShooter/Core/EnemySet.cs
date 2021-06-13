@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MathGame.Minigames.FirstPersonShooter
+namespace Discovery.Minigames.FirstPersonShooter
 {
     [CreateAssetMenu]
     public class EnemySet : RuntimeSet<Enemy>

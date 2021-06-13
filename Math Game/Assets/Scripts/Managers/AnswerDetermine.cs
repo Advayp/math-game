@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MathGame.Managers
+namespace Discovery.Managers
 {
     public class AnswerDetermine : MonoBehaviour, IAnswerDetermine
     {
@@ -8,7 +8,8 @@ namespace MathGame.Managers
         [SerializeField] private AnswerChecker correctAnswer;
 
         [Header("Colors")]
-        [SerializeField] private Color correctColor;
+        [SerializeField]
+        private Color correctColor;
 
         [SerializeField] private Color wrongColor;
 

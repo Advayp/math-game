@@ -1,4 +1,4 @@
-﻿namespace MathGame.PowerUps
+﻿namespace Discovery.PowerUps
 {
     [System.Serializable]
     public class ScorePowerUp : IPowerUp<int>

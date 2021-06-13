@@ -1,18 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-namespace MathGame.Minigames.FirstPersonShooter
+namespace Discovery.Minigames.FirstPersonShooter
 {
-    //TODO: Make this class work with multiple enemies
     public class FpsScoreManager : MonoBehaviour
     {
         [SerializeField] private FloatVariable score;
-        [SerializeField] private int scoreGivenOnDeath;
 
         public event Action Scored;
 
         public float CurrentScore => score.value;
-        
+
         private void Awake()
         {
 #if UNITY_EDITOR
@@ -20,19 +18,15 @@ namespace MathGame.Minigames.FirstPersonShooter
 #endif
         }
 
-        private void OnEnable()
+        public void AddToScore(int amount)
         {
-            EnemyHealth.OnDeath += AddToScore;
+            score.value += amount;
+            Scored?.Invoke();
         }
 
-        private void OnDisable()
+        public void SubtractFromScore(int amount)
         {
-            EnemyHealth.OnDeath -= AddToScore;
-        }
-
-        private void AddToScore()
-        {
-            score.value += scoreGivenOnDeath;
+            score.value = Mathf.Clamp(score.value - amount, 0, int.MaxValue);
             Scored?.Invoke();
         }
     }

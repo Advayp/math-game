@@ -1,4 +1,4 @@
-﻿using MathGame.PowerUps;
+﻿using Discovery.PowerUps;
 
 namespace Tests.EditMode
 {
@@ -11,7 +11,7 @@ namespace Tests.EditMode
             _scoreToAdd = amount;
             return this;
         }
-        
+
         private ScorePowerUp Build()
         {
             return new ScorePowerUp(_scoreToAdd);

@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
-namespace MathGame.PowerUps
+namespace Discovery.PowerUps
 {
     public class PowerUpDisplayer : MonoBehaviour
     {

@@ -273,9 +273,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b9e80d884434697bc8bf4a7a0eb402c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainEnemy: {fileID: 7283986952938999215}
   gunTip: {fileID: 3756659032386811807}
   gun: {fileID: 8588904918626610884}
-  damageDealt: 5
+  damageDealt: 1
   timeBetweenFire: 1
   bulletPrefab: {fileID: 6791774705225820500, guid: b4934d9327e0bf44a8189cb3ecd6c339, type: 3}
   destroyTime: 4

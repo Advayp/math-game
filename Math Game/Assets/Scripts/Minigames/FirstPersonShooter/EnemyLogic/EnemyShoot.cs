@@ -1,21 +1,23 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace MathGame.Minigames.FirstPersonShooter.EnemyLogic
+namespace Discovery.Minigames.FirstPersonShooter.EnemyLogic
 {
     public class EnemyShoot : MonoBehaviour, IEnemyAttack
     {
+        [SerializeField, Tooltip("The Enemy script attached to this gameObject")]
+        private Enemy mainEnemy;
+
         [SerializeField] private Transform gunTip;
         [SerializeField] private Transform gun;
         [SerializeField] private int damageDealt = 5;
-        
+
         [SerializeField] private float timeBetweenFire;
         [SerializeField] private Bullet bulletPrefab;
-        [SerializeField] private float destroyTime = 4f;
 
 
         private bool _doesDamage;
-        private WaitForSeconds _coolDown;
+        private WaitForSeconds _cooldown;
 
         public bool DoesDamage
         {
@@ -28,7 +30,7 @@ namespace MathGame.Minigames.FirstPersonShooter.EnemyLogic
         {
             Target = GetComponent<Enemy>().target;
 
-            _coolDown = new WaitForSeconds(timeBetweenFire);
+            _cooldown = new WaitForSeconds(timeBetweenFire);
         }
 
         private void Start()
@@ -39,6 +41,7 @@ namespace MathGame.Minigames.FirstPersonShooter.EnemyLogic
 
         private void Update()
         {
+            if (!mainEnemy.IsEnabled) return;
             var desiredRotation = Quaternion.LookRotation(Target.position - gun.position);
             desiredRotation.x = Mathf.Clamp(desiredRotation.x, -90, 90);
             gun.transform.rotation = desiredRotation;
@@ -50,15 +53,14 @@ namespace MathGame.Minigames.FirstPersonShooter.EnemyLogic
             while (true)
             {
                 Shoot();
-                yield return _coolDown;
+                yield return _cooldown;
             }
         }
 
         private void Shoot()
         {
             bulletPrefab.Initialize(damageDealt);
-            var bullet = Instantiate(bulletPrefab.gameObject, gunTip.position, gun.rotation);
-            Destroy(bullet, destroyTime);
+            Instantiate(bulletPrefab.gameObject, gunTip.position, gun.rotation);
         }
     }
 }

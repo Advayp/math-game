@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace MathGame.Minigames.FirstPersonShooter.Guns
+namespace Discovery.Minigames.FirstPersonShooter.Guns
 {
     public class MultipleOfTenReloadTimeCalculator : IReloadTimeCalculator
     {

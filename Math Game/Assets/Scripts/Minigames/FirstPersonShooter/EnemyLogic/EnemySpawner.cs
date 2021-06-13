@@ -1,21 +1,25 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-namespace MathGame.Minigames.FirstPersonShooter.EnemyLogic
+namespace Discovery.Minigames.FirstPersonShooter.EnemyLogic
 {
     public class EnemySpawner : MonoBehaviour, IEnableable
     {
-        [SerializeField] private Transform[] spawnLocations;
-        [SerializeField] private float spawnCooldown;
-        [SerializeField] private GameObject enemyPrefab;
         [SerializeField] private Transform target;
         
+        [SerializeField, Header("Config")] private Transform[] spawnLocations;
+        [SerializeField] private float spawnCooldown;
+        [SerializeField] private GameObject enemyPrefab;
+
         [SerializeField] private bool doesDamage;
-       
+
 
         private WaitForSeconds _spawnWaitForSeconds;
         private bool _isSpawning = true;
         private EnemyFactory _factory;
+        private IEnumerator _currentSpawnWave;
+
 
         private void Start()
         {
@@ -24,15 +28,20 @@ namespace MathGame.Minigames.FirstPersonShooter.EnemyLogic
             StartCoroutine(SpawnCoroutine());
         }
 
+        private void Update()
+        {
+            if (!_isSpawning || _currentSpawnWave != null) return;
+            _currentSpawnWave = SpawnCoroutine();
+            StartCoroutine(_currentSpawnWave);
+        }
+
         private IEnumerator SpawnCoroutine()
         {
-            while (_isSpawning)
-            {
-                yield return _spawnWaitForSeconds;
-                var desiredLocation = spawnLocations[Random.Range(0, spawnLocations.Length)];
-                var enemy = _factory.Create(desiredLocation.position, Quaternion.identity);
-                _factory.Process(enemy);
-            }
+            yield return _spawnWaitForSeconds;
+            var desiredLocation = spawnLocations[Random.Range(0, spawnLocations.Length)];
+            var enemy = _factory.Create(desiredLocation.position, Quaternion.identity);
+            _factory.Process(enemy);
+            _currentSpawnWave = null;
         }
 
 
@@ -54,6 +63,12 @@ namespace MathGame.Minigames.FirstPersonShooter.EnemyLogic
 
         public void Disable()
         {
+            if (_currentSpawnWave != null)
+            {
+                StopCoroutine(_currentSpawnWave);
+                _currentSpawnWave = null;
+            }
+
             _isSpawning = false;
         }
     }

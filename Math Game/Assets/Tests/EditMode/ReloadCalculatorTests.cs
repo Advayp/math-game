@@ -1,4 +1,4 @@
-﻿using MathGame.Minigames.FirstPersonShooter.Guns;
+﻿using Discovery.Minigames.FirstPersonShooter.Guns;
 using NUnit.Framework;
 
 namespace Tests.EditMode

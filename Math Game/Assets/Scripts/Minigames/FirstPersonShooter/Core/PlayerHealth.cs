@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-namespace MathGame.Minigames.FirstPersonShooter
+namespace Discovery.Minigames.FirstPersonShooter
 {
-    public class PlayerHealth : MonoBehaviour, IDamageable
+    public class PlayerHealth : MonoBehaviour, IDamageable, IHealable
     {
         [SerializeField] private int maxHealth;
         [SerializeField] private GameObject[] thingsToDisableOnDeath;
 
 
-        public event Action<int> Damaged;
+        public event Action<int> HealthChanged;
         public event Action Death;
 
         private int _currentHealth;
@@ -24,7 +24,7 @@ namespace MathGame.Minigames.FirstPersonShooter
         public void TakeDamage(int amount)
         {
             _currentHealth -= amount;
-            Damaged?.Invoke(_currentHealth);
+            HealthChanged?.Invoke(_currentHealth);
             if (_currentHealth <= 0)
             {
                 HandleDeath();
@@ -45,5 +45,11 @@ namespace MathGame.Minigames.FirstPersonShooter
             }
         }
 
+        public void HealFor(int amount)
+        {
+            _currentHealth += amount;
+            _currentHealth = Mathf.Clamp(_currentHealth, 0, maxHealth);
+            HealthChanged?.Invoke(+_currentHealth);
+        }
     }
 }
