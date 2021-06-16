@@ -10,6 +10,7 @@ namespace Discovery
         #region Inspector Fields
 
         [FormerlySerializedAs("MainQuestion")]
+        [Header("Dependencies"), Space]
         public Question mainQuestion;
 
         [FormerlySerializedAs("_correctAnswer")]

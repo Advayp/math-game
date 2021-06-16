@@ -6,9 +6,9 @@ namespace Discovery.Minigames.FirstPersonShooter.EnemyLogic
 {
     public class EnemySpawner : MonoBehaviour, IEnableable
     {
-        [SerializeField] private Transform target;
+        [SerializeField, Header("Dependencies"), Space] private Transform target;
         
-        [SerializeField, Header("Config")] private Transform[] spawnLocations;
+        [SerializeField, Header("Config"), Space] private Transform[] spawnLocations;
         [SerializeField] private float spawnCooldown;
         [SerializeField] private GameObject enemyPrefab;
 

@@ -1,4 +1,5 @@
 ﻿using Discovery.Minigames.Rhythm;
+using Discovery.Minigames.Rhythm.QuestionLogic;
 using UnityEditor;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ namespace Discovery.Editor
             
             if (GUILayout.Button("Update Text"))
             {
-                questionMaker?.UpdateQuestionUI();
+                questionMaker?.GenerateNewQuestion();
             }
         }
     }

@@ -28,10 +28,10 @@
             IsReloading = false;
             CurrentAmmoCount = _maxCount;
         }
+        
 
-        public void StartReloading()
-        {
-            IsReloading = true;
-        }
+        public void StartReloading() => IsReloading = true;
+
+        public void PauseReloading() => IsReloading = false;
     }
 }

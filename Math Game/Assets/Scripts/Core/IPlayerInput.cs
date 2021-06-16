@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Discovery.Minigames.FirstPersonShooter
+namespace Discovery
 {
     public interface IPlayerInput
     {

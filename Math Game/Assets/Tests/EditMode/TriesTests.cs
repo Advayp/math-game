@@ -32,7 +32,7 @@ namespace Tests.EditMode
 
             tries.UseTry();
 
-            Assert.AreEqual(3, tries.remainingTries);
+            Assert.AreEqual(3, tries.RemainingTries);
         }
     }
 }

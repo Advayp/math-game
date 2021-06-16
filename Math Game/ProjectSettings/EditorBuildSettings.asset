@@ -14,4 +14,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FPS.unity
     guid: 2dd2fa83f530aef4da691a9a1694a4ee
+  - enabled: 1
+    path: Assets/Scenes/FPSTransition.unity
+    guid: a28a5d031a3a52e419bf00a7165f1c48
+  - enabled: 1
+    path: Assets/Scenes/QuestionTransition.unity
+    guid: adcd9136ae124b141b6e3674d63dbabb
+  - enabled: 1
+    path: Assets/Scenes/RhythmGame.unity
+    guid: 7cd7b7c68aa50fe428dbcc2afe1ccccf
+  - enabled: 1
+    path: Assets/Scenes/RhythmTransition.unity
+    guid: 90f6aed63b0ee1541929bcf0e0a845ec
+  - enabled: 1
+    path: Assets/Scenes/RhythmGameTutorial.unity
+    guid: 54a4840f4b233224195ed425e27748ae
   m_configObjects: {}

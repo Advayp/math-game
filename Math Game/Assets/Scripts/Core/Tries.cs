@@ -2,17 +2,17 @@
 {
     public class Tries
     {
-        public int remainingTries;
+        public int RemainingTries;
 
         public Tries(int maxTries)
         {
-            remainingTries = maxTries;
+            RemainingTries = maxTries;
         }
 
         public bool UseTry()
         {
-            remainingTries--;
-            return remainingTries > 0;
+            RemainingTries--;
+            return RemainingTries > 0;
         }
     }
 }

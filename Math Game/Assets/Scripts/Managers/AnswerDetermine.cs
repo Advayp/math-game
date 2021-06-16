@@ -51,7 +51,7 @@ namespace Discovery.Managers
 
         public void UseTries()
         {
-           PowerUpManager.UseTries(ref _tries.remainingTries); 
+           PowerUpManager.UseTries(ref _tries.RemainingTries); 
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Discovery.Minigames.Rhythm
+namespace Discovery.Minigames.Rhythm.Other
 {
-    public class CubeColorGenerator : MonoBehaviour
+    public class CubeColorGenerator : MonoBehaviour, IEnableable
     {
         [SerializeField] private Color[] colors;
         [SerializeField] private float delay;
@@ -12,6 +12,7 @@ namespace Discovery.Minigames.Rhythm
         private MeshRenderer _renderer;
         private IEnumerator _currentColorRoutine;
         private int _currentIndex;
+        private bool _isEnabled;
 
         private void Awake()
         {
@@ -25,7 +26,7 @@ namespace Discovery.Minigames.Rhythm
 
         private void Update()
         {
-            if (_currentColorRoutine != null)
+            if (_currentColorRoutine != null || _isEnabled == false)
                 return;
             _currentColorRoutine = ChangeColor();
             StartCoroutine(_currentColorRoutine);
@@ -40,5 +41,16 @@ namespace Discovery.Minigames.Rhythm
             _currentColorRoutine = null;
         }
 
+
+
+        public void Enable()
+        {
+            _isEnabled = true;
+        }
+
+        public void Disable()
+        {
+            _isEnabled = false;
+        }
     }
 }

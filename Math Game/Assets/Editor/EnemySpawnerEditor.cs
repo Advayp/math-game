@@ -11,13 +11,13 @@ namespace Discovery.Editor
         {
             base.OnInspectorGUI();
 
-            var enemySpawner = target as EnemySpawner;
+            var enemySpawner = (EnemySpawner)target; 
 
             GUILayout.Space(20);
-            
+
             if (GUILayout.Button("Spawn Enemy"))
             {
-                enemySpawner?.Spawn();
+                enemySpawner.Spawn();
             }
         }
     }

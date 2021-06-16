@@ -1,0 +1,17 @@
+{
+    "name": "Platformer",
+    "rootNamespace": "Discovery",
+    "references": [
+        "GUID:f0dcfa6e2f4cdea4386865706d618226",
+        "GUID:8dc3ed168bf86ad4a9bd8ad9cc762b36"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

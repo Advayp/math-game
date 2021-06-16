@@ -279,4 +279,3 @@ MonoBehaviour:
   damageDealt: 1
   timeBetweenFire: 1
   bulletPrefab: {fileID: 6791774705225820500, guid: b4934d9327e0bf44a8189cb3ecd6c339, type: 3}
-  destroyTime: 4

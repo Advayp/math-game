@@ -31,16 +31,16 @@ namespace Discovery.Minigames.FirstPersonShooter
             Destroy(gameObject);
 
         }
+        private IEnumerator DeathCoroutine()
+        {
+            yield return new WaitForSeconds(2f);
+            Destroy(gameObject);
+        }
 
         public void Initialize(int damage)
         {
             damageDealt = damage;
         }
 
-        private IEnumerator DeathCoroutine()
-        {
-            yield return new WaitForSeconds(2f);
-            Destroy(gameObject);
-        }
     }
 }

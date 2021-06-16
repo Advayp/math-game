@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 3629958332345982526}
   - component: {fileID: 3629958332345982527}
   - component: {fileID: 5740992056596578133}
+  - component: {fileID: 9071737589412006345}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -396,6 +397,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatingUI: {fileID: 3629958330955907640}
-  model: {fileID: 3328685264734318748}
-  rotateSpeed: 20
   amountToHealFor: 10
+--- !u!114 &9071737589412006345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3629958332345982520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962950f48ee3466a8f4bb47fe0e54eea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 40
+  gameObjectToRotate: {fileID: 3328685264734318748}

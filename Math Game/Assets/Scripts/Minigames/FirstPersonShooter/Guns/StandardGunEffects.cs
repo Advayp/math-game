@@ -9,10 +9,16 @@ namespace Discovery.Minigames.FirstPersonShooter.Guns
 
         private Animator _animator;
         private static readonly int IsReloading = Animator.StringToHash("IsReloading");
+        private Quaternion _originalRotation;
 
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+        }
+
+        private void Start()
+        {
+            _originalRotation = transform.rotation;
         }
 
         public void OnReloadStart()
@@ -23,6 +29,7 @@ namespace Discovery.Minigames.FirstPersonShooter.Guns
         public void OnReloadStop()
         {
             _animator.SetBool(IsReloading, false);
+            transform.rotation = _originalRotation;
         }
 
         public void OnShoot()

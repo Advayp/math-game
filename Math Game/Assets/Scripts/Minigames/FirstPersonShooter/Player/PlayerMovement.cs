@@ -1,33 +1,45 @@
+using Discovery.Minigames.FirstPersonShooter.InputHandlers;
 using UnityEngine;
 
 namespace Discovery.Minigames.FirstPersonShooter.Player
 {
-    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(Rigidbody), typeof(PlayerInput))]
     public class PlayerMovement : MonoBehaviour, IEnableable
     {
         [SerializeField, Header("Movement Variables")]
-        private float moveSpeed;
+        protected float moveSpeed;
 
-        [SerializeField] private float maxSpeed;
+        [SerializeField] protected float maxSpeed;
 
         [SerializeField, Header("Jump Variables")]
         private float jumpForce = 400;
 
+        [SerializeField] protected int maxJumps = 1;
+        
+
         [SerializeField, Tooltip("The Amount to divide the moveSpeed by when jumping")]
-        private float speedMultiplierWhenJumping;
+        protected float speedMultiplierWhenJumping;
 
 
         [SerializeField] private string groundTag = "Ground";
 
 
+        // Input
         private Vector2 _inputDirection;
-        private Rigidbody _rigidbody;
         private IPlayerInput _playerInput;
-        private bool _isEnabled = true;
-        private bool _isGrounded = true;
-        private float _currentMoveSpeed, _moveSpeedWhenJumping;
+        
+        // Moving
+        private Rigidbody _rigidbody;
+        private float _currentMoveSpeed;
+        private float _moveSpeedWhenJumping;
+
+        // Pausing
         private Vector3 _previousVel;
         private CapsuleCollider _collider;
+        private bool _isEnabled = true;
+
+        // Jumping
+        protected int CurrentNumberOfJumps { get; set; }
 
         private void Awake()
         {
@@ -40,15 +52,15 @@ namespace Discovery.Minigames.FirstPersonShooter.Player
         {
             _moveSpeedWhenJumping = moveSpeed / speedMultiplierWhenJumping;
             _currentMoveSpeed = moveSpeed;
-            
-            Debug.Log("<color=#26ed7c>1234</color>");
+
+            CurrentNumberOfJumps = maxJumps;
         }
 
         private void Update()
         {
             if (_isEnabled == false) return;
 
-            _currentMoveSpeed = _isGrounded ? moveSpeed : _moveSpeedWhenJumping;
+            _currentMoveSpeed = CurrentNumberOfJumps > 0 ? moveSpeed : _moveSpeedWhenJumping;
 
             if (_rigidbody.velocity.magnitude > maxSpeed)
             {
@@ -60,20 +72,20 @@ namespace Discovery.Minigames.FirstPersonShooter.Player
             _rigidbody.AddForce(transform.forward * (_inputDirection.y * _currentMoveSpeed * Time.deltaTime));
             _rigidbody.AddForce(transform.right * (_inputDirection.x * _currentMoveSpeed * Time.deltaTime));
 
-            if (_playerInput.GetJump() && _isGrounded) Jump();
+            if (_playerInput.GetJump() && CurrentNumberOfJumps > 0) Jump();
         }
 
         private void Jump()
         {
+            CurrentNumberOfJumps--;
             _rigidbody.AddForce(transform.up * jumpForce);
-            _isGrounded = false;
         }
 
         private void OnCollisionEnter(Collision other)
         {
             if (other.collider.CompareTag(groundTag))
             {
-                _isGrounded = true;
+                CurrentNumberOfJumps = maxJumps;
             }
         }
 
@@ -90,6 +102,11 @@ namespace Discovery.Minigames.FirstPersonShooter.Player
             _collider.enabled = true;
             _rigidbody.velocity = _previousVel;
             _rigidbody.useGravity = true;
+        }
+
+        protected void RecalculateMoveSpeed()
+        {
+            _moveSpeedWhenJumping = moveSpeed / speedMultiplierWhenJumping;
         }
 
         public void Enable()

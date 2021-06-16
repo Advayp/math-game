@@ -39,7 +39,7 @@ namespace Discovery.Minigames.FirstPersonShooter.EnemyLogic
         }
 
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (!mainEnemy.IsEnabled) return;
             var desiredRotation = Quaternion.LookRotation(Target.position - gun.position);

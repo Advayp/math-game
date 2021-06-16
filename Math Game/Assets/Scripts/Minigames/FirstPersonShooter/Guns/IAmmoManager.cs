@@ -8,5 +8,6 @@
         bool UseBullet();
         void StopReloading();
         void StartReloading();
+        void PauseReloading();
     }
 }

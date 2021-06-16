@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -19,9 +20,9 @@ namespace Discovery.UI
             _originalFontSize = _label.fontSize;
         }
 
-        public void LoadScene(string sceneName)
+        public void LoadSceneUsingAsset(SceneAsset sceneAsset)
         {
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(sceneAsset.name);
         }
 
         public void OnPointerExit(PointerEventData eventData)

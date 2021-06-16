@@ -7,12 +7,13 @@ namespace Discovery.Minigames.FirstPersonShooter.Guns
 {
     public class Gun : MonoBehaviour, IEnableable
     {
-        [SerializeField] private Transform mainCamera;
+        [SerializeField, Header("Dependencies"), Space] private Transform mainCamera;
         [SerializeField] private GameObject ammoCounter;
-
         [SerializeField] private AnimationClip reloadAnimation;
 
-        [FormerlySerializedAs("maxDistance")] [Header("Gun Variables"), SerializeField]
+        [FormerlySerializedAs("maxDistance")] 
+        [Header("Config"), SerializeField]
+        [Space]
         private int shootingDistance;
 
         [SerializeField, Range(2, 50)] private int damage;
@@ -30,6 +31,8 @@ namespace Discovery.Minigames.FirstPersonShooter.Guns
         private IReloadTimeCalculator _reloadTimeCalculator;
         private bool _isEnabled = true;
 
+        private bool CanShoot => _gunInput.GetInput() && Time.time >= _nextTimeToFire;
+
         private void Awake()
         {
             _gunInput = GetComponent<IGunInput>();
@@ -37,6 +40,10 @@ namespace Discovery.Minigames.FirstPersonShooter.Guns
             _reloadTimeCalculator = new MultipleOfTenReloadTimeCalculator();
             _reloadWaitForSeconds = new WaitForSeconds(reloadAnimation.length * _reloadTimeCalculator.Calculate(maxAmmo));
             _gunEffects = GetComponent<IGunEffect>();
+            
+            mainCamera.Require(this);
+            ammoCounter.Require(this);
+            reloadAnimation.Require(this);
         }
 
         private void Start()
@@ -52,7 +59,12 @@ namespace Discovery.Minigames.FirstPersonShooter.Guns
             {
                 StartCoroutine(ReloadCoroutine());
             }
-            if (!_gunInput.GetInput() || !(Time.time >= _nextTimeToFire)) return;
+            if (!CanShoot) return;
+            TryToShoot();
+        }
+
+        private void TryToShoot()
+        {
             if (_ammoManager.UseBullet() && _ammoManager.IsReloading == false)
             {
                 Shoot();
@@ -70,13 +82,13 @@ namespace Discovery.Minigames.FirstPersonShooter.Guns
             yield return _reloadWaitForSeconds;
             _ammoManager.StopReloading();
             _gunEffects.OnReloadStop();
-            
-            
+
             UpdateAmmoCount();
+
         }
 
         [ContextMenu("Stop Reloading")]
-        private void StopReloadAnimation() => _gunEffects.OnReloadStop(); 
+        private void StopReloadAnimation() => _gunEffects.OnReloadStop();
 
         [ContextMenu("Start Reloading")]
         private void StartReloadAnimation() => _gunEffects.OnReloadStart();
@@ -85,9 +97,9 @@ namespace Discovery.Minigames.FirstPersonShooter.Guns
         {
             _gunEffects.OnShoot();
             _nextTimeToFire = Time.time + 1f / fireRate;
-            
+
             UpdateAmmoCount();
-            
+
             if (!Physics.Raycast(mainCamera.position, mainCamera.forward, out var hit, shootingDistance)) return;
             var damageable = hit.collider.GetComponent<IDamageable>();
             damageable?.TakeDamage(damage);
@@ -101,7 +113,7 @@ namespace Discovery.Minigames.FirstPersonShooter.Guns
 
         public void Enable()
         {
-            _isEnabled = true;      
+            _isEnabled = true;
         }
 
         public void Disable()
