@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Discovery.Minigames.Platformer
+namespace Discovery.Minigames.Platformer.PowerUps
 {
     public class JumpPowerUp : MonoBehaviour
     {

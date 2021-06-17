@@ -6,9 +6,21 @@ namespace Discovery.Minigames.FirstPersonShooter.Player
     {
         [SerializeField] private float mouseSensitivity;
         [SerializeField] private Transform player;
+        [SerializeField] private FPSGameConfig config;
+        
 
         private float _xRotation;
         private bool _isEnabled = true;
+
+        private void Awake()
+        {
+            if (config == null)
+            {
+                return;
+            }
+
+            mouseSensitivity = config.mouseSensitivity;
+        }
 
         private void Update()
         {

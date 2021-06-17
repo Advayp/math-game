@@ -6,6 +6,8 @@ namespace Discovery.Minigames.FirstPersonShooter.Guns
     public class StandardGunEffects : MonoBehaviour, IGunEffect
     {
         [SerializeField] private ParticleSystem muzzleFlash;
+        [SerializeField] private FPSGameConfig config;
+        
 
         private Animator _animator;
         private static readonly int IsReloading = Animator.StringToHash("IsReloading");
@@ -14,6 +16,7 @@ namespace Discovery.Minigames.FirstPersonShooter.Guns
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+            config.Require(this);
         }
 
         private void Start()
@@ -34,6 +37,7 @@ namespace Discovery.Minigames.FirstPersonShooter.Guns
 
         public void OnShoot()
         {
+            if (config.showEffects == false) return;
             muzzleFlash.Play();
         }
         

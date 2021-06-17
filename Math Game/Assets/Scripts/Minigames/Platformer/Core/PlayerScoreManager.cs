@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Discovery.Minigames.Platformer
 {
@@ -7,6 +8,8 @@ namespace Discovery.Minigames.Platformer
         [SerializeField, Header("Dependencies"), Space] private FloatVariable score;
         [SerializeField, Header("Config"), Space] private int amountGivenOnCollect;
         [SerializeField] private string powerUpTag = "PowerUp";
+
+        public event Action<int> Scored;
 
         private void Awake()
         {
@@ -18,6 +21,8 @@ namespace Discovery.Minigames.Platformer
 #if UNITY_EDITOR
             score.value = 0;
 #endif
+            
+            OnScored(score.value);
         }
 
         private void OnCollisionEnter(Collision other)
@@ -25,8 +30,13 @@ namespace Discovery.Minigames.Platformer
             if (!other.gameObject.CompareTag(powerUpTag)) return;
             Debug.Log("Increased Score");
             score.value += amountGivenOnCollect;
+            OnScored(score.value);
         }
 
 
+        private void OnScored(int obj)
+        {
+            Scored?.Invoke(obj);
+        }
     }
 }
