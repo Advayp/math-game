@@ -25,6 +25,7 @@ namespace Discovery
 #if UNITY_EDITOR
             score.value = 0;
 #endif
+            UpdateLabel();
         }
 
         private void OnDestroy()
@@ -47,7 +48,7 @@ namespace Discovery
 
         private void UpdateLabel()
         {
-            _label.SetText($"Score: {score.value}");
+            _label.SetText($"{score.value}");
         }
     }
 }

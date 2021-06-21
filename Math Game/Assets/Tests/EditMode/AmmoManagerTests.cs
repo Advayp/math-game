@@ -28,10 +28,12 @@ namespace Tests.EditMode
         [Test]
         public void AmmoCount_Decreases_IfUseBulletIsCalled()
         {
-            AmmoManager ammoManager = A.AmmoManager.WithMax(25);
-            ammoManager.UseBullet();
-            Assert.AreEqual(24, ammoManager.CurrentAmmoCount);
+            AmmoManager manager = A.AmmoManager.WithMax(25);
+            manager.UseBullet();
+            
+            Assert.AreEqual(24, manager.CurrentAmmoCount);
         }
+        
         
     }
 }

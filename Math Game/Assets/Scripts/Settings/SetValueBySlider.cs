@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Discovery.Settings
 {
     public class SetValueBySlider : MonoBehaviour
     {
-        [SerializeField] private Fields field;
-        [SerializeField] private FPSGameConfig config;
+        [FormerlySerializedAs("field")] [SerializeField] private Field field;
+        [SerializeField] private GameConfig config;
 
         public void SetValue(float value)
         {

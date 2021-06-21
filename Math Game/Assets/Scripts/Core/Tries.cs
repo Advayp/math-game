@@ -12,7 +12,14 @@
         public bool UseTry()
         {
             RemainingTries--;
-            return RemainingTries > 0;
+            
+            if (RemainingTries > 0)
+            {
+                return true;
+            }
+
+            RemainingTries = 0;
+            return false;
         }
     }
 }

@@ -5,7 +5,10 @@ namespace Discovery.Minigames.Rhythm.Other
 {
     public class CubeColorGenerator : MonoBehaviour, IEnableable
     {
-        [SerializeField] private Color[] colors;
+        [SerializeField, Header("Dependencies"), Space] private GameConfig config;
+        
+        
+        [SerializeField, Header("Config"), Space] private Color[] colors;
         [SerializeField] private float delay;
 
         private WaitForSeconds _delayBetweenColorChange;
@@ -17,6 +20,8 @@ namespace Discovery.Minigames.Rhythm.Other
         private void Awake()
         {
             _renderer = GetComponent<MeshRenderer>();
+            
+            config.Require(this);
         }
 
         private void Start()
@@ -26,7 +31,7 @@ namespace Discovery.Minigames.Rhythm.Other
 
         private void Update()
         {
-            if (_currentColorRoutine != null || _isEnabled == false)
+            if (_currentColorRoutine != null || _isEnabled == false || config.showConstantColorChange == false)
                 return;
             _currentColorRoutine = ChangeColor();
             StartCoroutine(_currentColorRoutine);

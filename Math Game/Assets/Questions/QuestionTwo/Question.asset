@@ -17,7 +17,8 @@ MonoBehaviour:
   tries: 1
   seconds: 20
   correctAnswer: {fileID: 11400000, guid: 7f43cc1589ba7f142a813dc9655d4294, type: 2}
-  wrongAnswers:
+  answers:
   - {fileID: 11400000, guid: 574650b284eb1a24aa05bf87d3f7a662, type: 2}
   - {fileID: 11400000, guid: 43e08cabd3de6e34c95f932f78ff6861, type: 2}
   - {fileID: 11400000, guid: d7efd85dcdfb1b1439b109857d0d5ffc, type: 2}
+  - {fileID: 11400000, guid: 7f43cc1589ba7f142a813dc9655d4294, type: 2}

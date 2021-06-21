@@ -17,5 +17,9 @@ namespace Discovery
 
         [FormerlySerializedAs("Seconds")]
         public int seconds;
+
+        public Answer correctAnswer;
+        
+        public Answer[] answers;
     }
 }

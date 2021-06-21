@@ -96,12 +96,6 @@ namespace Discovery
                 answerChecker.answerButton.interactable = false;
             }
         }
-
-        public void UseScorePowerUp()
-        {
-            PowerUpManager.UseScore(ref _scoreManager.Score.value);
-            Scored?.Invoke();
-        }
         
     }
 }

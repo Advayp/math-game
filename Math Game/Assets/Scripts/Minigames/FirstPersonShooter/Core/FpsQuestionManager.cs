@@ -21,6 +21,7 @@ namespace Discovery.Minigames.FirstPersonShooter
             new Dictionary<GameObject, IEnableable[]>();
 
         private WaitForSeconds _hideQuestionDelay;
+        
 
         private void Awake()
         {

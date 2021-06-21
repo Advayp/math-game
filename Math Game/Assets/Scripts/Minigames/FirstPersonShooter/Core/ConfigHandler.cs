@@ -4,7 +4,7 @@ namespace Discovery.Minigames.FirstPersonShooter
 {
     public class ConfigHandler : MonoBehaviour
     {
-        [SerializeField] private FPSGameConfig config;
+        [SerializeField] private GameConfig config;
 
         [SerializeField, Header("Dependencies"), Space]
         private Camera mainCam;

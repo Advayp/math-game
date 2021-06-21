@@ -9,10 +9,10 @@ namespace Discovery.Minigames.FirstPersonShooter
         [SerializeField] private GameObject[] thingsToDisableOnDeath;
 
 
-        public event Action<int> HealthChanged;
+        public event Action<float> HealthChanged;
         public event Action Death;
 
-        private int _currentHealth;
+        private float _currentHealth;
 
         public int MaxHealth => maxHealth;
 
@@ -21,7 +21,7 @@ namespace Discovery.Minigames.FirstPersonShooter
             _currentHealth = maxHealth;
         }
 
-        public void TakeDamage(int amount)
+        public void TakeDamage(float amount)
         {
             _currentHealth -= amount;
             HealthChanged?.Invoke(_currentHealth);

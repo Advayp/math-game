@@ -12,5 +12,16 @@ namespace Tests.EditMode
             
             Assert.IsTrue(calculator.Calculate(200) > calculator.Calculate(100));
         }
+
+        [Test]
+        public void CalculatedAmount_IsZero_IfTheAmmoIsZero()
+        {
+            MultipleOfTenReloadTimeCalculator calculator = A.ReloadCalculator;
+
+            const int expected = 0;
+            var result = calculator.Calculate(0);
+            
+            Assert.AreEqual(expected, result);
+        }
     }
 }

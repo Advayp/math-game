@@ -34,7 +34,7 @@ namespace Discovery.Minigames.FirstPersonShooter.UI
             player.HealthChanged -= UpdateValue;
         }
 
-        private void UpdateValue(int newHealth)
+        private void UpdateValue(float newHealth)
         {
             _slider.value = newHealth;
         }

@@ -9,7 +9,7 @@ namespace Discovery.Minigames.FirstPersonShooter
 
         public static event Action OnDeath;
 
-        private int _health;
+        private float _health;
 
         private void Start()
         {
@@ -17,7 +17,7 @@ namespace Discovery.Minigames.FirstPersonShooter
         }
 
 
-        public void TakeDamage(int amount)
+        public void TakeDamage(float amount)
         {
             _health -= amount;
             if (_health > 0) return;

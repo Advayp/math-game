@@ -5,8 +5,8 @@ namespace Discovery.Settings
 {
     public class LoadUsingToggle : MonoBehaviour
     {
-        [SerializeField] private FPSGameConfig config;
-        [SerializeField] private Fields field;
+        [SerializeField] private GameConfig config;
+        [SerializeField] private Field field;
         [SerializeField] private Toggle toggle;
 
         private void Start()

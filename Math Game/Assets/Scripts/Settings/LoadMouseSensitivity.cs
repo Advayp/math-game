@@ -5,7 +5,7 @@ namespace Discovery.Settings
 {
     public class LoadMouseSensitivity : MonoBehaviour
     {
-        [SerializeField] private FPSGameConfig config;
+        [SerializeField] private GameConfig config;
         [SerializeField] private Slider slider;
 
         private void Start()

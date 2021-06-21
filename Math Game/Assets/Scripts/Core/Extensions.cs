@@ -11,6 +11,7 @@ namespace Discovery
         Green,
         Blue,
         Yellow,
+        HeaderColor
     }
 
     public static class Extensions
@@ -20,7 +21,8 @@ namespace Discovery
             { AvailableColors.Blue, "blue" },
             { AvailableColors.Green, "green" },
             { AvailableColors.Red, "red" },
-            { AvailableColors.Yellow, "yellow" }
+            { AvailableColors.Yellow, "yellow" },
+            { AvailableColors.HeaderColor , "#F6E58D"}
         };
 
         public static string Color(this string text, AvailableColors color)
@@ -52,6 +54,15 @@ namespace Discovery
             if (gameObjects.Any(e => e.GetComponentInChildren<T>() == null))
             {
                 Debug.LogWarning($"Expected Type <color=yellow>{typeof(T)}</color> in <color=red>{context.name}</color>", context);
+            }
+        }
+
+        public static void RequireComponent<T>(this GameObject gameObject, Object context)
+        {
+            var component = gameObject.GetComponent<T>();
+            if (component == null)
+            {
+                Debug.LogWarning($"Expected type {typeof(T).ToString().Color(AvailableColors.Yellow)} in {context.name.Color(AvailableColors.Green)}");
             }
         }
 

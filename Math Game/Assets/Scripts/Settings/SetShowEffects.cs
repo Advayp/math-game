@@ -4,7 +4,7 @@ namespace Discovery.Settings
 {
     public class SetShowEffects : MonoBehaviour
     {
-        [SerializeField] private FPSGameConfig config;
+        [SerializeField] private GameConfig config;
 
         public void SetValue(bool value)
         {

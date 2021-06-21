@@ -6,7 +6,7 @@ namespace Discovery.Minigames.FirstPersonShooter.Player
     {
         [SerializeField] private float mouseSensitivity;
         [SerializeField] private Transform player;
-        [SerializeField] private FPSGameConfig config;
+        [SerializeField] private GameConfig config;
         
 
         private float _xRotation;

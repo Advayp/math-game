@@ -6,7 +6,7 @@ namespace Discovery.Minigames.FirstPersonShooter.Guns
     public class StandardGunEffects : MonoBehaviour, IGunEffect
     {
         [SerializeField] private ParticleSystem muzzleFlash;
-        [SerializeField] private FPSGameConfig config;
+        [SerializeField] private GameConfig config;
         
 
         private Animator _animator;

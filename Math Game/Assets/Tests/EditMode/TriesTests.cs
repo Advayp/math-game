@@ -34,5 +34,18 @@ namespace Tests.EditMode
 
             Assert.AreEqual(3, tries.RemainingTries);
         }
+
+        [Test]
+        public void RemainingTries_IsZero_IfUseTryFails()
+        {
+            Tries tries = A.Try.WithMax(1);
+
+            tries.UseTry();
+
+            const int expected = 0;
+            var result = tries.RemainingTries;
+
+            Assert.AreEqual(expected, result);
+        }
     }
 }

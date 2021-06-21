@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FPSHowToPlay.unity
     guid: b31b59bd476b10342916e4d9a7cb59de
+  - enabled: 1
+    path: Assets/Scenes/RhythmSettings.unity
+    guid: 451fb01e19e203d4aa98ba7ef1de8f8d
   m_configObjects: {}

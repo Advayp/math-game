@@ -7,6 +7,8 @@ namespace Discovery.Minigames.Rhythm.QuestionLogic
         [SerializeField, Header("Dependencies"), Space]
         private QuestionMaker questionMaker;
         [SerializeField] private RhythmQuestionAnswerManager[] answerManagers;
+        [SerializeField] private GameConfig config;
+        
 
         [SerializeField, Header("Config"), Space]
         private Color colorWhenCorrect;
@@ -16,7 +18,8 @@ namespace Discovery.Minigames.Rhythm.QuestionLogic
 
         private void Awake()
         {
-           questionMaker.Require(this); 
+           questionMaker.Require(this);
+           config.Require(this);
         }
 
         private void OnEnable()
@@ -52,6 +55,8 @@ namespace Discovery.Minigames.Rhythm.QuestionLogic
 
         private void ChangeAllColors()
         {
+            if (config.changeAnswerColor == false) return;
+            
             foreach (var answerManager in answerManagers)
             {
                 if (answerManager.IsCorrect)

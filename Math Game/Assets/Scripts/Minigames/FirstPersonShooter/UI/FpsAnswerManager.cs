@@ -28,6 +28,8 @@ namespace Discovery.Minigames.FirstPersonShooter.UI
             {
                 _field.Select();
             }
+            if (!Input.GetKeyDown(KeyCode.Return)) return;
+            Enter();
         }
 
         public void Enter()

@@ -1,4 +1,5 @@
-﻿using Discovery.Managers;
+﻿using Discovery;
+using Discovery.Managers;
 
 // Builder Pattern
 namespace Tests.EditMode

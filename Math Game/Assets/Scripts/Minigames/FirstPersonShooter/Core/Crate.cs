@@ -7,9 +7,9 @@ namespace Discovery.Minigames.FirstPersonShooter
     {
         [SerializeField, Range(50, 100)] private int maxHealth;
 
-        public event Action<int> Shot;
+        public event Action<float> Shot;
 
-        private int _health;
+        private float _health;
 
         private void Start()
         {
@@ -17,12 +17,12 @@ namespace Discovery.Minigames.FirstPersonShooter
             Shot += Damage;
         }
 
-        public void TakeDamage(int amount)
+        public void TakeDamage(float amount)
         {
             Shot?.Invoke(amount);
         }
 
-        private void Damage(int amount)
+        private void Damage(float amount)
         {
             _health -= amount;
             if (_health > 0) return;

@@ -1,4 +1,4 @@
-using Discovery.Managers;
+using Discovery;
 using NUnit.Framework;
 
 namespace Tests.EditMode

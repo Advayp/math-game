@@ -56,7 +56,7 @@ namespace Discovery.Minigames.FirstPersonShooter.Player
             CurrentNumberOfJumps = maxJumps;
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             if (_isEnabled == false) return;
 

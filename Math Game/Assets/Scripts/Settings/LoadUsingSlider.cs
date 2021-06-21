@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Discovery.Settings
 {
     public class LoadUsingSlider : MonoBehaviour
     {
-        [SerializeField] private FPSGameConfig config;
+        [SerializeField] private GameConfig config;
         [SerializeField] private Slider slider;
-        [SerializeField] private Fields field;
+        [FormerlySerializedAs("field")] [SerializeField] private Field field;
 
         private void Start()
         {

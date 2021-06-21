@@ -1,3 +1,4 @@
+using Discovery.Audio;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -32,6 +33,7 @@ namespace Discovery.UI
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            AudioManager.Instance.Play(AvailableSound.Hover);
             _label.fontSize = fontSizeWhenHighlighted;
         }
     }
