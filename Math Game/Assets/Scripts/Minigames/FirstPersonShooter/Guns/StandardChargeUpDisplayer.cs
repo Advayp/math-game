@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 namespace Discovery.Minigames.FirstPersonShooter.Guns
 {
-
     public class StandardChargeUpDisplayer : MonoBehaviour, IChargeAmountDisplayer
     {
         [SerializeField] private Slider slider;

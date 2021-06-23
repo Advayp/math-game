@@ -23,8 +23,9 @@ namespace Discovery
             Initialize(question);
         }
 
-        private void Initialize(Question desiredQuestion)
+        public void Initialize(Question desiredQuestion)
         {
+            print($"Changed Text to {desiredQuestion.text}");
             question = desiredQuestion;
             label.SetText(question.text.Color(AvailableColors.HeaderColor));
         }

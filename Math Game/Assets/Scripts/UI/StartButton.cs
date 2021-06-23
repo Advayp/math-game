@@ -33,7 +33,7 @@ namespace Discovery.UI
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            AudioManager.Instance.Play(AvailableSound.Hover);
+            AudioManager.Instance.Play(AvailableSounds.Hover);
             _label.fontSize = fontSizeWhenHighlighted;
         }
     }

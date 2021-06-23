@@ -17,11 +17,6 @@ namespace Discovery
         public static IPowerUp<int> RecentScorePowerUp => ScorePowerUps.Count == 0 ? null : ScorePowerUps.Last();
         public static IPowerUp<float> RecentTimePowerUp => TimePowerUps.Count == 0 ? null : TimePowerUps.Last();
 
-        private void Start()
-        {
-            AddScorePowerUp(new ScorePowerUp(2));
-        }
-
         public static void UseScore(ref int amount)
         {
             PowerUps[PowerUpType.Score].Use(ref amount);

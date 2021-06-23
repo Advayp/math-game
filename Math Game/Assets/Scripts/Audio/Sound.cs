@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Discovery.Audio
 {
     [Serializable]
-    public enum AvailableSound
+    public enum AvailableSounds
     {
         Hover
     }
@@ -12,7 +12,7 @@ namespace Discovery.Audio
     [Serializable]
     public class Sound
     {
-        public AvailableSound type;
+        public AvailableSounds type;
         
         public AudioClip clip;
        

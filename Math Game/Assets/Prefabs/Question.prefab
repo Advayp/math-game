@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2976580471263572098}
   - component: {fileID: 2976580471263572092}
   m_Layer: 5
-  m_Name: QuestionOne
+  m_Name: Question
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,8 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d782e6ad731e447a81c16249909451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: {fileID: 2976580471792365916}
-  _question: {fileID: 11400000, guid: 80658fa50ad32694c9ff6ba6d28e42ce, type: 2}
+  label: {fileID: 2976580471792365916}
+  question: {fileID: 11400000, guid: 80658fa50ad32694c9ff6ba6d28e42ce, type: 2}
 --- !u!1 &2976580471792365922
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,16 +278,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb988154b3589d45a632f8adf85b546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainQuestion: {fileID: 11400000, guid: 80658fa50ad32694c9ff6ba6d28e42ce, type: 2}
-  CorrectColor: {r: 0.3254902, g: 0.94509804, b: 0.38431373, a: 1}
-  WrongColor: {r: 0.9607843, g: 0.30588236, b: 0.30588236, a: 1}
-  _correctAnswer: {fileID: 3093247017107192110}
-  _answerCheckers:
+  mainQuestion: {fileID: 11400000, guid: 80658fa50ad32694c9ff6ba6d28e42ce, type: 2}
+  correctAnswer: {fileID: 3093247017107192110}
+  answerCheckers:
   - {fileID: 3093247017107192110}
   - {fileID: 8730408666857976486}
   - {fileID: 8730408666225319518}
   - {fileID: 8730408666095065668}
-  _score: {fileID: 11400000, guid: 4a1db709486442b45a3a68205a7d95f6, type: 2}
+  timer: {fileID: 0}
 --- !u!1001 &2976580472029984094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -301,12 +299,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2976580472153356911}
+      objectReference: {fileID: 8730408666095065668}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -317,18 +315,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MathGame.Core.AnswerManager, Scripts
+      value: Discovery.AnswerChecker, Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 8730408666095065668}
+      objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: MathGame.Core.AnswerChecker, Scripts
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5793410630922841882, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 2976580472153356911}
+    - target: {fileID: 5793410630922841882, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: AnswerToCheck
+      value: 
+      objectReference: {fileID: 11400000, guid: f0ca294721df90f479c32d860dbfc5be, type: 2}
+    - target: {fileID: 5793410630922841882, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
+      propertyPath: answerToCheck
       value: 
       objectReference: {fileID: 11400000, guid: f0ca294721df90f479c32d860dbfc5be, type: 2}
     - target: {fileID: 6036459200029638026, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
@@ -420,6 +426,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036459200029638028, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
+      propertyPath: answer
+      value: 
+      objectReference: {fileID: 11400000, guid: f0ca294721df90f479c32d860dbfc5be, type: 2}
+    - target: {fileID: 6036459200029638028, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: _answer
       value: 
       objectReference: {fileID: 11400000, guid: f0ca294721df90f479c32d860dbfc5be, type: 2}
@@ -454,12 +464,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2976580472153356911}
+      objectReference: {fileID: 8730408666225319518}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -470,18 +480,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MathGame.Core.AnswerManager, Scripts
+      value: Discovery.AnswerChecker, Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 8730408666225319518}
+      objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: MathGame.Core.AnswerChecker, Scripts
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5793410630922841882, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 2976580472153356911}
+    - target: {fileID: 5793410630922841882, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: AnswerToCheck
+      value: 
+      objectReference: {fileID: 11400000, guid: a672d7ec57ac39146b049fdbb5bc1a5e, type: 2}
+    - target: {fileID: 5793410630922841882, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
+      propertyPath: answerToCheck
       value: 
       objectReference: {fileID: 11400000, guid: a672d7ec57ac39146b049fdbb5bc1a5e, type: 2}
     - target: {fileID: 6036459200029638026, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
@@ -573,6 +591,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036459200029638028, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
+      propertyPath: answer
+      value: 
+      objectReference: {fileID: 11400000, guid: a672d7ec57ac39146b049fdbb5bc1a5e, type: 2}
+    - target: {fileID: 6036459200029638028, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: _answer
       value: 
       objectReference: {fileID: 11400000, guid: a672d7ec57ac39146b049fdbb5bc1a5e, type: 2}
@@ -607,12 +629,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2976580472153356911}
+      objectReference: {fileID: 8730408666857976486}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -623,18 +645,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MathGame.Core.AnswerManager, Scripts
+      value: Discovery.AnswerChecker, Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 8730408666857976486}
+      objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: MathGame.Core.AnswerChecker, Scripts
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5793410630922841882, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 2976580472153356911}
+    - target: {fileID: 5793410630922841882, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: AnswerToCheck
+      value: 
+      objectReference: {fileID: 11400000, guid: bfe66f80b1cb77043b0d239626fd7b10, type: 2}
+    - target: {fileID: 5793410630922841882, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
+      propertyPath: answerToCheck
       value: 
       objectReference: {fileID: 11400000, guid: bfe66f80b1cb77043b0d239626fd7b10, type: 2}
     - target: {fileID: 6036459200029638026, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
@@ -726,6 +756,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036459200029638028, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
+      propertyPath: answer
+      value: 
+      objectReference: {fileID: 11400000, guid: bfe66f80b1cb77043b0d239626fd7b10, type: 2}
+    - target: {fileID: 6036459200029638028, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: _answer
       value: 
       objectReference: {fileID: 11400000, guid: bfe66f80b1cb77043b0d239626fd7b10, type: 2}
@@ -760,12 +794,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2976580472153356911}
+      objectReference: {fileID: 3093247017107192110}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -776,18 +810,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MathGame.Core.AnswerManager, Scripts
+      value: Discovery.AnswerChecker, Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 3093247017107192110}
+      objectReference: {fileID: 0}
     - target: {fileID: 2034491381082159702, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: MathGame.Core.AnswerChecker, Scripts
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5793410630922841882, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 2976580472153356911}
+    - target: {fileID: 5793410630922841882, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: AnswerToCheck
+      value: 
+      objectReference: {fileID: 11400000, guid: 32427f0ecd0c04e44b3ddd70e6ce8918, type: 2}
+    - target: {fileID: 5793410630922841882, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
+      propertyPath: answerToCheck
       value: 
       objectReference: {fileID: 11400000, guid: 32427f0ecd0c04e44b3ddd70e6ce8918, type: 2}
     - target: {fileID: 6036459200029638026, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
@@ -878,6 +920,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6036459200029638028, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
+      propertyPath: answer
+      value: 
+      objectReference: {fileID: 11400000, guid: 32427f0ecd0c04e44b3ddd70e6ce8918, type: 2}
     - target: {fileID: 6036459200029638028, guid: 46ea08cdc3d71bc42843a07ffc327373, type: 3}
       propertyPath: _answer
       value: 

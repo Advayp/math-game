@@ -43,7 +43,7 @@ namespace Tests.EditMode
 
             handler.Check(5);
 
-            const string expected = "Answered 1 question(s)!";
+            const string expected = "Completed 1 questions!";
             var result = handler.GetText();
             
             Assert.AreEqual(expected, result);
@@ -56,7 +56,7 @@ namespace Tests.EditMode
 
             handler.Check(100);
 
-            const string expected = "Answered 50 question(s)!";
+            const string expected = "Completed 50 questions!";
             var result = handler.GetText();
             
             Assert.AreEqual(expected, result);

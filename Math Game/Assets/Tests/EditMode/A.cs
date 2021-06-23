@@ -12,5 +12,6 @@
         public static StandardQuestionGeneratorBuilder QuestionGenerator => new StandardQuestionGeneratorBuilder();
         public static ChargeDamageCalculatorBuilder DamageCalculator => new ChargeDamageCalculatorBuilder();
         public static QuestionAchievementBuilder QuestionAchievement => new QuestionAchievementBuilder();
+        public static DecreasingCounterBuilder DecreasingCounter => new DecreasingCounterBuilder();
     }
 }

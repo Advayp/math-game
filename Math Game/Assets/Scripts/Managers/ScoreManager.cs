@@ -24,7 +24,6 @@ namespace Discovery.Managers
 
         public void IncreaseScore()
         {
-            print("Increased Score");
             Score.value += _pointsAddedToScore;
         }
 
@@ -36,6 +35,11 @@ namespace Discovery.Managers
         public void UseScorePowerUp()
         {
             PowerUpManager.UseScore(ref _pointsAddedToScore);
+        }
+
+        public void Initialize(int pointsAdded)
+        {
+            _pointsAddedToScore = pointsAdded;
         }
         
     }

@@ -4,19 +4,21 @@ using UnityEngine;
 
 namespace Discovery.PowerUps
 {
+
+    [Serializable]
+    public enum AvailablePowerUps
+    {
+        Time,
+        Score,
+        Tries
+    }
+
     public class PowerUpDisplayer : MonoBehaviour
     {
-        [Serializable]
-        public enum AvailablePowerUps
-        {
-            Time,
-            Score,
-            Tries
-        }
-        
+
         [SerializeField] private TMP_Text powerUpText;
         [SerializeField] private AvailablePowerUps powerUpType;
-       
+
 
         public void UpdateText()
         {

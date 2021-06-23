@@ -36,7 +36,7 @@ namespace Discovery.Audio
             sound.source.volume = sound.volume;
         }
 
-        public void Play(AvailableSound type)
+        public void Play(AvailableSounds type)
         {
             var sound = Array.Find(sounds, e => e.type == type);
 

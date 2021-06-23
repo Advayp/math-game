@@ -53,5 +53,12 @@ namespace Discovery.Managers
         {
            PowerUpManager.UseTries(ref _tries.RemainingTries); 
         }
+
+        public void Initialize(Question question, AnswerChecker correctAnswerToUse)
+        {
+            mainQuestion = question;
+            correctAnswer = correctAnswerToUse;
+            _tries = new Tries(mainQuestion.tries);
+        }   
     }
 }

@@ -15,5 +15,6 @@ MonoBehaviour:
   mouseSensitivity: 100
   fov: 100
   showEffects: 1
-  changeAnswerColor: 0
-  showConstantColorChange: 0
+  changeAnswerColor: 1
+  showConstantColorChange: 1
+  showAchievementsOnScreen: 0

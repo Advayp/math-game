@@ -830,7 +830,7 @@ MonoBehaviour:
   highestToleratedValue: 2.77
   startValue: 0
   endValue: 4.3
-  smoothSpeed: 2.283
+  smoothSpeed: 3
   direction: 1
   useRandomValue: 0
   tolerance: 0.3

@@ -18,5 +18,12 @@ namespace Discovery.Display
         {
             label.SetText(answer.value);
         }
+
+        public void Initialize(Answer answerToUse)
+        {
+            answer = answerToUse;
+            label.SetText(answer.value);
+        }   
+        
     }
 }
