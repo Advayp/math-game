@@ -26,6 +26,8 @@ namespace Discovery.Minigames.FirstPersonShooter.Guns
 
         private void Update()
         {
+            if (FpsQuestionManager.IsQuestionDisplaying) return;
+            
             for (var i = 0; i < gunKeys.Length; i++)
             {
                 if (!Input.GetKey(gunKeys[i])) continue;

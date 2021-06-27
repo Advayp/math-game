@@ -14,6 +14,7 @@ namespace Discovery.Minigames.FirstPersonShooter
         [SerializeField, Tooltip("The delay before the question that is currently displaying disappears.")]
         private float delay = 0.3f;
 
+        public static bool IsQuestionDisplaying;
 
         private QuestionDisplayer _currentQuestion;
 
@@ -56,7 +57,7 @@ namespace Discovery.Minigames.FirstPersonShooter
             _currentQuestion = questionDisplays[index];
 
             _currentQuestion.Show();
-
+            IsQuestionDisplaying = true;
             ChangeState(e => { e.Disable(); });
         }
 
@@ -80,6 +81,7 @@ namespace Discovery.Minigames.FirstPersonShooter
         {
             yield return _hideQuestionDelay;
             _currentQuestion.Hide();
+            IsQuestionDisplaying = false;
             ChangeState(e => { e.Enable(); });
         }
     }

@@ -9,7 +9,7 @@ namespace Discovery.Minigames.FirstPersonShooter.PowerUps
         
         protected override void OnTouchingPlayer(GameObject player)
         {
-            print("<b>Picked Up</b>");
+            if (FpsQuestionManager.IsQuestionDisplaying) return;
             var healable = player.GetComponent<IHealable>();
             healable.HealFor(amountToHealFor);
             Collider.enabled = false;

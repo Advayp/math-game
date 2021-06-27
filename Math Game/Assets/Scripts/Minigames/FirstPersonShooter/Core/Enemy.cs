@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
 
 namespace Discovery.Minigames.FirstPersonShooter
@@ -30,6 +31,11 @@ namespace Discovery.Minigames.FirstPersonShooter
         private void OnDestroy()
         {
             set.Remove(this);
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+           print($"Collided with {other.gameObject.name}"); 
         }
 
         public void Enable()

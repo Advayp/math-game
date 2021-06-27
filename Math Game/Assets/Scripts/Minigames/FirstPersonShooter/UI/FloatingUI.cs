@@ -17,6 +17,8 @@ namespace Discovery.Minigames.FirstPersonShooter.UI
 
         private void Update()
         {
+            if (FpsQuestionManager.IsQuestionDisplaying) return;
+
             var desiredPosition = mainCamera.WorldToScreenPoint(target.position + offset);
 
             if (transform.position != desiredPosition)

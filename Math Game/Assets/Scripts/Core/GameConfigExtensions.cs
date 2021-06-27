@@ -37,5 +37,17 @@ namespace Discovery
             var fld = typeof(GameConfig).GetField(Variables[field]);
             fld.SetValue(config, value);
         }
+
+        public static object Get(this GameConfig config, string fieldName)
+        {
+            var fld = typeof(GameConfig).GetField(fieldName);
+            return fld.GetValue(config);
+        }
+
+        public static void Set(this GameConfig config, string fieldName, object value)  
+        {
+            var fld = typeof(GameConfig).GetField(fieldName);
+            fld.SetValue(config, value); 
+        }
     }
 }
