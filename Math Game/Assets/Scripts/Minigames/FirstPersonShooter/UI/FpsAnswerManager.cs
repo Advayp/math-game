@@ -43,5 +43,10 @@ namespace Discovery.Minigames.FirstPersonShooter.UI
 
             responseToWrongAnswer.Invoke();
         }
+
+        public void Initialize(Answer answer)
+        {
+            correctAnswer = answer;
+        }
     }
 }

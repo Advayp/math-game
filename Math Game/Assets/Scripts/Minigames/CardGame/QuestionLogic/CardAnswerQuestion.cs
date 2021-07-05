@@ -37,7 +37,7 @@ namespace Discovery.Minigames.CardGame.QuestionLogic
         {
             print("Player Two");
             _answerDisplay.InitializeText(PlayerType.Two);
-            _hasInitialized = false;
+            _hasInitialized = true;
         }
 
         private void HandlePlayerOne()

@@ -7,6 +7,8 @@ namespace Discovery.UI
     {
         [SerializeField] private Vector3 desiredScale;
         [SerializeField] private float duration;
+        [SerializeField] private float delay;
+        
         [SerializeField] private UnityEvent onCompleteCallback;
 
         private Vector3 _originalScale;
@@ -21,12 +23,12 @@ namespace Discovery.UI
             LeanTween.scale(gameObject, desiredScale, duration).setOnComplete(() =>
             {
                 onCompleteCallback?.Invoke();
-            });
+            }).setDelay(delay);
         }
 
         public void ScaleOut()
         {
-            LeanTween.scale(gameObject, _originalScale, duration);
+            LeanTween.scale(gameObject, _originalScale, duration).setDelay(delay);
         }
     }
 }

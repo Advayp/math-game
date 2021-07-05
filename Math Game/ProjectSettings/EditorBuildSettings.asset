@@ -38,4 +38,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RhythmSettings.unity
     guid: 451fb01e19e203d4aa98ba7ef1de8f8d
+  - enabled: 1
+    path: Assets/Scenes/QuickGame.unity
+    guid: 7a46eabc30a9ae24fa34b625eddf6b11
+  - enabled: 1
+    path: Assets/Scenes/CardGameMenu.unity
+    guid: f2327257937ea4c47acbcd7978b005c0
+  - enabled: 1
+    path: Assets/Scenes/NewFpsGameMenu.unity
+    guid: 12897724e28923544af78313cd9a6d6e
+  - enabled: 1
+    path: Assets/Scenes/NewRhythmGameMenu.unity
+    guid: 8ebf5953e382e4e4e80ef6e8d080c8ff
   m_configObjects: {}

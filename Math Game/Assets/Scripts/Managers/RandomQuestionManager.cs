@@ -43,7 +43,7 @@ namespace Discovery.Managers
             var randomIndex = new Random().Next(questions.Count);
             var randomQuestion = questions[randomIndex];
             
-            timer.Start(randomQuestion.seconds);
+            timer.StartTimer(randomQuestion.seconds);
             
             configurableQuestion.Initialize(randomQuestion);
 

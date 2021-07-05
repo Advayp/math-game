@@ -1,4 +1,4 @@
-﻿namespace Discovery.Minigames.CardGame.QuestionLogic
+﻿namespace Discovery.Minigames.CardGame
 {
     public enum PlayerType
     {

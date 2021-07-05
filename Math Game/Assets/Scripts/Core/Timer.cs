@@ -13,7 +13,7 @@ namespace Discovery
         private TMP_Text _timerText;
         private bool _hasTimerStarted;
 
-        private void Start()
+        private void Awake()
         {
             _timerText = GetComponent<TMP_Text>();
             _hasTimerStarted = false;
@@ -34,7 +34,7 @@ namespace Discovery
             _timerText.SetText($"{(minutes * 60) + seconds}");
         }
 
-        public void Start(float time)
+        public void StartTimer(float time)
         {
             timeRemaining = time;
             _hasTimerStarted = true;

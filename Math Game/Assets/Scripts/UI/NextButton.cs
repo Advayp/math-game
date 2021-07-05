@@ -1,17 +1,15 @@
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace Discovery.UI
 {
     public class NextButton : MonoBehaviour
     {
-        [FormerlySerializedAs("_nextButton")]
-        [SerializeField]
-        private GameObject nextButton;
+        [SerializeField] private Button nextButton;
 
         private void Start()
         {
-            nextButton.SetActive(false);
+            nextButton.interactable = false;
             AnswerManager.QuestionCompleted += SetNextButtonToActive;
         }
 
@@ -22,7 +20,7 @@ namespace Discovery.UI
 
         private void SetNextButtonToActive()
         {
-            nextButton.SetActive(true);
+            nextButton.interactable = true; 
         }
     }
 }

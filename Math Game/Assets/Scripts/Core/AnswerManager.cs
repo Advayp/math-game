@@ -43,7 +43,7 @@ namespace Discovery
 
         private void Start()
         {
-            timer.Start(mainQuestion.seconds + 1);
+            timer.StartTimer(mainQuestion.seconds + 1);
         }
 
         private void OnEnable()
@@ -60,6 +60,8 @@ namespace Discovery
 
         public void Check(AnswerChecker answer)
         {
+            print("Checked Answer");
+        
             if (_answerDetermine.IsWrongAnswer(answer))
             {
                 if (_answerDetermine.HandleWrongAnswer(answer)) return;

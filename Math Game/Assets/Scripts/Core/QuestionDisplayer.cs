@@ -7,27 +7,27 @@ namespace Discovery
     public class QuestionDisplayer : MonoBehaviour
     {
         [FormerlySerializedAs("_label")] [SerializeField, Header("Dependencies"), Space]
-        private TMP_Text label;
+        protected TMP_Text label;
 
         [FormerlySerializedAs("_question")] [SerializeField, Header("Config"), Space]
-        private Question question;
+        protected Question question;
 
 
-        private void Awake()
+        protected virtual void Awake()
         {
            label.Require(this);
         }
 
-        private void Start()
+        protected virtual void Start()
         {
             Initialize(question);
         }
 
-        public void Initialize(Question desiredQuestion)
+        public virtual void Initialize(Question desiredQuestion)
         {
             print($"Changed Text to {desiredQuestion.text}");
             question = desiredQuestion;
-            label.SetText(question.text.Color(AvailableColors.HeaderColor));
+            label.SetText(question.text);
         }
     }
 }

@@ -6,7 +6,6 @@ namespace Discovery.Minigames.FirstPersonShooter.Guns
     public class StandardGunEffects : MonoBehaviour, IGunEffect
     {
         [SerializeField] private ParticleSystem muzzleFlash;
-        [SerializeField] private AnimationClip shootClip;
         [SerializeField] private GameConfig config;
         
 
@@ -18,7 +17,6 @@ namespace Discovery.Minigames.FirstPersonShooter.Guns
         {
             _animator = GetComponent<Animator>();
             config.Require(this);
-            shootClip.Require(this);
         }
 
         private void Start()

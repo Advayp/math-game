@@ -34,6 +34,7 @@ namespace Discovery.Minigames.CardGame.QuestionLogic
 
         public void InitializeText(PlayerType playerType)
         {
+            DeterminePlayer.CurrentPlayer = playerType;
             label.SetText($"What is the Answer, Player {PlayerNames[playerType]}");
             onClickButton.interactable = true;
             LeanTween.scale(panel, new Vector3(1, 1, 1), 0.2f).setOnComplete(() =>

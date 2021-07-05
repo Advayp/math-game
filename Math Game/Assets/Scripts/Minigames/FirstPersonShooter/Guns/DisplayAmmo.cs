@@ -8,7 +8,7 @@ namespace Discovery.Minigames.FirstPersonShooter.Guns
     {
         private TMP_Text _label;
 
-        private void Start()
+        private void Awake()
         {
             _label = GetComponent<TMP_Text>();
         }

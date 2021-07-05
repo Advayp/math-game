@@ -1,22 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Discovery.Managers
 {
     public class OptionMenu : MonoBehaviour
     {
-        [SerializeField] private GameObject exitUI;
         [SerializeField] private KeyCode keyToExit = KeyCode.Escape;
         [SerializeField] private GameObject[] disableables;
+        [SerializeField] private UnityEvent showMenu;
+        [SerializeField] private UnityEvent hideMenu;
+        
 
         private readonly List<IEnableable[]> _enableables = new List<IEnableable[]>();
-
-        private void Awake()
-        {
-            exitUI.Require(this);
-
-        }
+        private bool _isMenuActive;
 
         private void Start()
         {
@@ -31,19 +29,39 @@ namespace Discovery.Managers
         private void Update()
         {
             if (!Input.GetKeyDown(keyToExit)) return;
-            HandleExit();
+            if (!_isMenuActive)
+            {
+                HandleExit();
+                return;
+            }
+            HandleStart();
         }
 
         private void HandleExit()
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            
-            exitUI.SetActive(true);
+
+            showMenu?.Invoke();
+            _isMenuActive = true;
             
             foreach (var enableable in _enableables.SelectMany(enableables => enableables))
             {
                 enableable.Disable();
+            }
+        }
+
+        private void HandleStart()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
+            hideMenu?.Invoke();
+            _isMenuActive = false;
+
+            foreach (var enableable in _enableables.SelectMany(e => e))
+            {
+                enableable.Enable();
             }
         }
         
